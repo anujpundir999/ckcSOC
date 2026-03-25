@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Raw Event Envelope",
+  "description": "Kafka message envelope for raw SOC events",
+  "type": "object",
+  "required": ["message_id", "event_time_utc", "source_system", "payload_version", "payload"],
+  "properties": {
+    "message_id": {
+      "type": "string",
+      "description": "Unique message identifier (UUID)"
+    },
+    "event_time_utc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event timestamp in ISO 8601 UTC"
+    },
+    "source_system": {
+      "type": "string",
+      "enum": ["auth", "edr", "network", "db", "email", "siem"],
+      "description": "Originating system"
+    },
+    "payload_version": {
+      "type": "string",
+      "enum": ["v1"],
+      "description": "Schema version"
+    },
+    "payload": {
+      "type": "object",
+      "description": "Event-specific data",
+      "properties": {
+        "user": {"type": "string"},
+        "event": {"type": "string"},
+        "ip": {"type": "string"},
+        "device": {"type": "string"},
+        "is_anomalous": {"type": "boolean"},
+        "rows_accessed": {"type": "integer"}
+      }
+    }
+  }
+}
