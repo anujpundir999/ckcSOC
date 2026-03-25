@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Normalized Event",
+  "description": "Phase 2 output — normalized and enriched event",
+  "type": "object",
+  "required": ["normalized_timestamp", "user", "event_type", "event_category", "source_system"],
+  "properties": {
+    "normalized_timestamp": {"type": "string", "format": "date-time"},
+    "user": {"type": "string"},
+    "ip": {"type": ["string", "null"]},
+    "device": {"type": ["string", "null"]},
+    "event_type": {"type": "string"},
+    "event_category": {"type": "string", "enum": ["authentication", "endpoint", "privilege", "data_access", "communication", "network", "alert", "misc"]},
+    "source_system": {"type": "string"},
+    "risk_hints": {"type": "array", "items": {"type": "string"}},
+    "privilege_indicator": {"type": "boolean"},
+    "is_anomalous": {"type": ["boolean", "null"]},
+    "raw_payload": {"type": "object"}
+  }
+}

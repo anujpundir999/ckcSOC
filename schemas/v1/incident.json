@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Incident Cluster",
+  "description": "Clustered and scored incident schema",
+  "type": "object",
+  "required": ["cluster_id", "primary_user", "event_sequence", "priority"],
+  "properties": {
+    "cluster_id": {"type": "string"},
+    "primary_user": {"type": "string"},
+    "start_time": {"type": "string"},
+    "end_time": {"type": "string"},
+    "source_systems": {"type": "array", "items": {"type": "string"}},
+    "event_sequence": {"type": "array", "items": {"type": "string"}},
+    "event_sequence_compact": {"type": "string"},
+    "escalation_flags": {"type": "array", "items": {"type": "string"}},
+    "risk_hint_summary": {"type": "array", "items": {"type": "string"}},
+    "priority": {"type": "string", "enum": ["low", "medium", "high", "critical"]},
+    "log_count": {"type": "integer"},
+    "anomalous_count": {"type": "integer"},
+    "has_anomalous": {"type": "boolean"},
+    "severity": {"type": "string", "enum": ["Low", "Medium", "High"]},
+    "anomaly_score": {"type": "number"},
+    "fidelity_score": {"type": "number"},
+    "combined_score": {"type": "number"},
+    "final_score": {"type": "number"}
+  }
+}
