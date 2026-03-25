@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual env
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Generated datasets (large JSON files)
+datasets/*.json
+!datasets/synthetic_dataset_builder.py
+
+# State files (runtime generated)
+state/sentinel_memory.json
+state/fingerprints.json
+state/audit_log.json
+state/playbooks.json
+state/scoring_baseline.json
+state/drift_log.json
+
+# Model caches
+models/hf_ner/
+models/ollama/
+
+# Test artifacts
+.pytest_cache/
+htmlcov/
+.coverage
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
