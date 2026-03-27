@@ -117,6 +117,14 @@ def dataset_stats():
     }
 
 
+@router.get('/playbooks')
+def get_playbooks():
+    """Generated playbooks."""
+    playbooks = _read_json(STATE_DIR / 'playbooks.json', [])
+    return {'count': len(playbooks), 'playbooks': playbooks}
+
+
+
 def mount_dashboard(app: FastAPI):
     """Mount the dashboard routes and static files on an existing FastAPI app."""
     app.include_router(router)

@@ -45,25 +45,31 @@ def _risk_hints(payload, ts_str):
 def normalize_one(envelope: dict) -> dict:
     p  = envelope['payload']
     ts = envelope['event_time_utc']
-    desc = f"{p.get('user','')} {p.get('event','')} {p.get('ip','')} {p.get('device','')}"
 
-    ner = _get_ner()
-    user_ner = None
-    if ner and ner is not False:
-        try:
-            ents = ner(desc)
-            pers = [e['word'] for e in ents if e['entity_group']=='PER']
-            user_ner = pers[0] if pers else None
-        except Exception:
-            pass
+    # Fast path: user field present — skip expensive BERT NER entirely
+    user = p.get('user') or p.get('username') or p.get('actor')
+
+    # Only call BERT NER when user is genuinely unknown (rare edge case)
+    if not user:
+        ner = _get_ner()
+        if ner and ner is not False:
+            try:
+                desc = f"{p.get('event','')} {p.get('ip','')} {p.get('device','')}"
+                ents = ner(desc)
+                pers = [e['word'] for e in ents if e['entity_group'] == 'PER']
+                user = pers[0] if pers else 'unknown'
+            except Exception:
+                user = 'unknown'
+        else:
+            user = 'unknown'
 
     return {
         'normalized_timestamp': ts,
-        'user':            p.get('user') or user_ner or 'unknown',
+        'user':            user,
         'ip':              p.get('ip'),
         'device':          p.get('device'),
-        'event_type':      p.get('event','unknown'),
-        'event_category':  EVENT_CATEGORY_MAP.get(p.get('event',''),'misc'),
+        'event_type':      p.get('event', 'unknown'),
+        'event_category':  EVENT_CATEGORY_MAP.get(p.get('event', ''), 'misc'),
         'source_system':   envelope['source_system'],
         'risk_hints':      _risk_hints(p, ts),
         'privilege_indicator': bool(_RE_PRIV.search(str(p))),
@@ -75,6 +81,7 @@ def run(state: dict) -> list:
     result = [normalize_one(e) for e in state['raw_logs']]
     print(f'[PHASE 2] Normalized: {len(result)} events')
     return result
+
 
 
 def serve():

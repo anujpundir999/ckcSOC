@@ -43,3 +43,13 @@ Thumbs.db
 
 # Docker
 *.log
+ckcSOC-ui/node_modules
+ckcSOC-ui/dist
+ckcSOC-ui/src-tauri/target
+models/active_version.txt
+datasets/synthetic_dataset_builder.py
+pipeline/pipeline_key.py
+BACKEND_SETUP.md
+FRONTEND_SETUP.md
+README.md
+CHAT_CONTEXT.md

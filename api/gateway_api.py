@@ -1,13 +1,17 @@
 # api/gateway_api.py
 from fastapi import FastAPI, HTTPException, Depends, Header
+from fastapi.middleware.cors import CORSMiddleware
 from pathlib import Path
 import json
 
 app = FastAPI(title='ckcSOC Gateway')
 
-# Mount dashboard
-from api.dashboard_api import mount_dashboard
-mount_dashboard(app)
+# CORS — allow React dev server (localhost:3000) and production
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
+
+# Register dashboard API routes (consumed by React frontend)
+from api.dashboard_api import router as dashboard_router
+app.include_router(dashboard_router)
 
 TOKENS = {'reader-token-xxx': 'reader', 'approver-token-yyy': 'approver',
           'admin-token-zzz': 'admin'}
