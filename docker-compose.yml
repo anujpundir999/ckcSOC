@@ -1,0 +1,109 @@
+version: '3.8'
+
+x-soc-base: &soc-base
+  build: .
+  restart: unless-stopped
+  environment:
+    - KAFKA_BOOTSTRAP=kafka:9092
+    - HF_HOME=/app/models/hf_ner
+    - OLLAMA_URL=http://ollama:11434
+  volumes:
+    - ./models:/app/models
+    - ./state:/app/state
+    - ./datasets:/app/datasets
+
+services:
+
+  kafka:
+    image: apache/kafka:3.9.2
+    ports: ['9092:9092']
+    environment:
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+    healthcheck:
+      test: ['CMD','kafka-topics.sh','--bootstrap-server','localhost:9092','--list']
+      interval: 10s
+      retries: 5
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+    ports: ['9200:9200']
+    volumes: [es_data:/usr/share/elasticsearch/data]
+    healthcheck:
+      test: ['CMD','curl','-f','http://localhost:9200/_cluster/health']
+      interval: 15s
+
+  ollama:
+    image: ollama/ollama:latest
+    ports: ['11434:11434']
+    volumes: [ollama_models:/root/.ollama]
+
+  dataset-builder:
+    <<: *soc-base
+    command: python datasets/synthetic_dataset_builder.py
+    restart: 'no'
+
+  ingestor:
+    <<: *soc-base
+    command: python -m pipeline.phase1_ingest --serve
+    depends_on: [kafka]
+
+  normalizer:
+    <<: *soc-base
+    command: python -m pipeline.phase2_normalize --serve
+    depends_on: [kafka]
+
+  correlator:
+    <<: *soc-base
+    command: python -m pipeline.phase3_correlate --serve
+    depends_on: [kafka]
+
+  scorer:
+    <<: *soc-base
+    command: uvicorn api.scorer_api:app --host 0.0.0.0 --port 8001
+    ports: ['8001:8001']
+    depends_on: [kafka]
+
+  explainability:
+    <<: *soc-base
+    command: python -m pipeline.phase5_explain --serve
+    depends_on: [kafka]
+
+  playbook-gen:
+    <<: *soc-base
+    command: python -m pipeline.phase6_playbook --serve
+    depends_on: [kafka, ollama]
+
+  aegis:
+    <<: *soc-base
+    command: python -m pipeline.phase7_aegis --serve
+    depends_on: [kafka]
+
+  human-gate:
+    <<: *soc-base
+    command: python -m pipeline.phase8_approval --serve
+    depends_on: [kafka]
+
+  gateway:
+    <<: *soc-base
+    command: uvicorn api.gateway_api:app --host 0.0.0.0 --port 8000
+    ports: ['8000:8000']
+    depends_on: [kafka, scorer]
+
+  drift-monitor:
+    <<: *soc-base
+    command: python -m pipeline.drift_monitor
+    depends_on: [kafka, scorer]
+
+volumes:
+  es_data:
+  ollama_models:
