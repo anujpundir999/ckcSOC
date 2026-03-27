@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ckcSOC — Cyber Incident Response Console</title>
+    <meta name="description" content="Real-time SOC dashboard for 11-layer cyber incident response pipeline">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-left">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <circle cx="14" cy="14" r="12" stroke="url(#g1)" stroke-width="2"/>
+                        <circle cx="14" cy="14" r="6" fill="url(#g1)" opacity="0.3"/>
+                        <circle cx="14" cy="14" r="3" fill="url(#g1)"/>
+                        <defs><linearGradient id="g1" x1="0" y1="0" x2="28" y2="28">
+                            <stop stop-color="#6366f1"/><stop offset="1" stop-color="#06b6d4"/>
+                        </linearGradient></defs>
+                    </svg>
+                </div>
+                <h1>ckcSOC</h1>
+                <span class="badge" id="model-version">v—</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="status-indicator" id="pipeline-status">
+                <span class="pulse"></span>
+                <span>Pipeline Active</span>
+            </div>
+            <button class="btn-refresh" id="btn-refresh" onclick="refreshAll()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M23 4v6h-6M1 20v-6h6"/>
+                    <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+                </svg>
+                Refresh
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Grid -->
+    <main id="main-grid">
+        <!-- Top Stats Row -->
+        <section class="stats-row" id="stats-row">
+            <div class="stat-card" id="stat-events">
+                <div class="stat-icon events-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-value" id="total-events">—</span>
+                    <span class="stat-label">Total Events</span>
+                </div>
+            </div>
+            <div class="stat-card" id="stat-incidents">
+                <div class="stat-icon incidents-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                        <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-value" id="total-incidents">—</span>
+                    <span class="stat-label">High Severity</span>
+                </div>
+            </div>
+            <div class="stat-card" id="stat-approvals">
+                <div class="stat-icon approvals-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-value" id="total-approvals">—</span>
+                    <span class="stat-label">Approvals</span>
+                </div>
+            </div>
+            <div class="stat-card" id="stat-drift">
+                <div class="stat-icon drift-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                        <polyline points="17 6 23 6 23 12"/>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-value" id="drift-status">—</span>
+                    <span class="stat-label">Model Drift</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pipeline Phases -->
+        <section class="card pipeline-card" id="pipeline-phases-card">
+            <h2>Pipeline Phases</h2>
+            <div class="pipeline-flow" id="pipeline-flow"></div>
+        </section>
+
+        <!-- Two-column layout -->
+        <div class="two-col">
+            <!-- Severity Chart -->
+            <section class="card" id="severity-card">
+                <h2>Event Sources</h2>
+                <div class="chart-container">
+                    <canvas id="source-chart"></canvas>
+                </div>
+                <div id="source-legend" class="chart-legend"></div>
+            </section>
+
+            <!-- Escalation Flags -->
+            <section class="card" id="flags-card">
+                <h2>Escalation Flags</h2>
+                <div class="chart-container">
+                    <canvas id="flags-chart"></canvas>
+                </div>
+                <div id="flags-legend" class="chart-legend"></div>
+            </section>
+        </div>
+
+        <!-- Incidents Table -->
+        <section class="card" id="incidents-card">
+            <h2>Sentinel Memory — High-Severity Incidents</h2>
+            <div class="table-wrapper">
+                <table id="incidents-table">
+                    <thead>
+                        <tr>
+                            <th>Fingerprint</th>
+                            <th>Flags</th>
+                            <th>Status</th>
+                            <th>Model</th>
+                            <th>Timestamp</th>
+                        </tr>
+                    </thead>
+                    <tbody id="incidents-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Audit Trail -->
+        <section class="card" id="audit-card">
+            <h2>Audit Trail</h2>
+            <div class="table-wrapper">
+                <table id="audit-table">
+                    <thead>
+                        <tr>
+                            <th>Cluster</th>
+                            <th>Status</th>
+                            <th>Reason</th>
+                            <th>Actions</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="audit-tbody"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <span>Team CKC · Hack O Hire 2026 · Barclays SOC Challenge</span>
+        <span id="last-refresh">Last refresh: —</span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
