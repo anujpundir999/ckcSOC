@@ -17,22 +17,43 @@ import os, json, requests
 from datetime import datetime, timezone
 
 # ── Ollama Configuration ──
-OLLAMA_URL = os.environ.get('OLLAMA_URL', 'http://localhost:11434') + '/api/generate'
-MODEL      = os.environ.get('OLLAMA_MODEL', 'mistral')
-FALLBACK   = 'llama3.2:3b'
-TIMEOUT    = 90
-MIN_WORDS  = 80
+OLLAMA_URL  = os.environ.get('OLLAMA_URL', 'http://localhost:11434') + '/api/generate'
+MODEL       = os.environ.get('OLLAMA_MODEL', 'mistral')
+FALLBACK    = 'llama3.2:3b'
+TIMEOUT     = 90
+MIN_WORDS   = 80
 MAX_RETRIES = 2
+
+# ── Secure Channel Config (for distributed LLM on separate machine) ──
+# Set OLLAMA_API_KEY to require Bearer token auth on the remote Ollama
+OLLAMA_API_KEY   = os.environ.get('OLLAMA_API_KEY', '')       # e.g. 'sk-soc-barclays-xxx'
+# Set OLLAMA_VERIFY_SSL=false to use self-signed certs during dev
+OLLAMA_VERIFY_SSL = os.environ.get('OLLAMA_VERIFY_SSL', 'true').lower() != 'false'
+# Set OLLAMA_CERT=/path/to/client.pem for mutual TLS (mTLS)
+OLLAMA_CERT      = os.environ.get('OLLAMA_CERT', '')          # client cert for mTLS
+
+def _build_headers() -> dict:
+    """Build request headers — adds Bearer auth if API key is configured."""
+    h = {'Content-Type': 'application/json'}
+    if OLLAMA_API_KEY:
+        h['Authorization'] = f'Bearer {OLLAMA_API_KEY}'
+    return h
+
+def _get_cert():
+    """Return cert config for requests — supports both mTLS and no-cert modes."""
+    if OLLAMA_CERT and os.path.exists(OLLAMA_CERT):
+        return OLLAMA_CERT
+    return None
 
 # ── Ollama Model Parameters ──
 OLLAMA_PARAMS = {
-    'temperature':    0.3,    # Low temp = deterministic, consistent playbooks
-    'num_predict':    800,    # Max tokens to generate
-    'top_p':          0.9,    # Nucleus sampling threshold
-    'top_k':          40,     # Top-K sampling
-    'repeat_penalty': 1.1,   # Penalize repetition
-    'num_ctx':        4096,   # Context window size
-    'seed':           42,     # Reproducible outputs for same prompt
+    'temperature':    0.3,
+    'num_predict':    800,
+    'top_p':          0.9,
+    'top_k':          40,
+    'repeat_penalty': 1.1,
+    'num_ctx':        4096,
+    'seed':           42,
 }
 
 # ── NIST 800-61 Template Playbooks ──
@@ -124,20 +145,21 @@ def _template_playbook(cluster, scored):
     return {k: _fill(v, user) for k, v in tmpl.items()}
 
 def _llm(prompt, model=MODEL, retry=0):
-    """Call Ollama API with full production parameters."""
+    """Call Ollama API with full production parameters and secure channel support."""
     try:
-        r = requests.post(OLLAMA_URL, json={
-            'model':   model,
-            'prompt':  prompt,
-            'stream':  False,
-            'options': OLLAMA_PARAMS
-        }, timeout=TIMEOUT)
+        r = requests.post(
+            OLLAMA_URL,
+            json={'model': model, 'prompt': prompt, 'stream': False, 'options': OLLAMA_PARAMS},
+            headers=_build_headers(),
+            timeout=TIMEOUT,
+            verify=OLLAMA_VERIFY_SSL,
+            cert=_get_cert() or None,
+        )
         r.raise_for_status()
         resp = r.json()
         text = resp.get('response', '').strip()
 
-        # Log model metrics
-        eval_count = resp.get('eval_count', 0)
+        eval_count    = resp.get('eval_count', 0)
         eval_duration = resp.get('eval_duration', 0)
         tokens_per_sec = eval_count / (eval_duration / 1e9) if eval_duration else 0
 

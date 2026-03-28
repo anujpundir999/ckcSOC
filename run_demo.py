@@ -2,18 +2,23 @@
 """ckcSOC pipeline entrypoint — production mode.
 
 Usage:
-    python run_demo.py                    # Full production run
+    python run_demo.py                    # Full production run (10k events)
     python run_demo.py --no-plots         # Skip matplotlib heatmaps
+    python run_demo.py --verbose          # Show per-event logs at each layer (1k events)
+    python run_demo.py --limit 500        # Cap events at 500
     python run_demo.py --dataset <path>   # Custom dataset path
 """
 import argparse, json, time
 from pathlib import Path
 from soc_graph import SOC_APP, _initial_state
 
-def run(no_plots=False, dataset='datasets/all_events.json'):
+def run(no_plots=False, dataset='datasets/all_events.json', verbose=False, limit=None):
     print('='*60)
     print('ckcSOC — 11-Layer Cyber Incident Response Pipeline')
     print('Team CKC  ·  Hack O Hire 2026  ·  Barclays SOC')
+    if verbose:
+        cap = limit or 1000
+        print(f'[VERBOSE MODE] Showing per-event logs | Event cap: {cap}')
     print('='*60)
 
     # Verify dataset exists
@@ -22,10 +27,16 @@ def run(no_plots=False, dataset='datasets/all_events.json'):
         print('[INFO]  Run: python datasets/synthetic_dataset_builder.py')
         return None
 
+    # In verbose mode, default to 1k events unless user specified a limit
+    if verbose and limit is None:
+        limit = 1000
+
     state = _initial_state()
     state['runtime_meta'] = {
         'no_plots':  no_plots,
         'dataset':   dataset,
+        'verbose':   verbose,
+        'limit':     limit,
     }
 
     start = time.time()
@@ -61,6 +72,8 @@ def run(no_plots=False, dataset='datasets/all_events.json'):
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='ckcSOC — 11-Layer SOC Pipeline')
     ap.add_argument('--no-plots', action='store_true', help='Skip matplotlib visualizations')
-    ap.add_argument('--dataset', default='datasets/all_events.json', help='Path to events dataset')
+    ap.add_argument('--verbose',  action='store_true', help='Print per-event logs at every layer (auto-caps at 1k)')
+    ap.add_argument('--limit',    type=int, default=None, help='Cap number of events (e.g. --limit 1000)')
+    ap.add_argument('--dataset',  default='datasets/all_events.json', help='Path to events dataset')
     args = ap.parse_args()
-    run(no_plots=args.no_plots, dataset=args.dataset)
+    run(no_plots=args.no_plots, dataset=args.dataset, verbose=args.verbose, limit=args.limit)
