@@ -1,0 +1,10 @@
+.git
+.venv
+__pycache__
+*.pyc
+.DS_Store
+ckcSOC-ui/node_modules
+ckcSOC-ui/dist
+ckcSOC-ui/src-tauri/target
+models/hf_ner
+state/*.json

@@ -1,19 +1,28 @@
-
+# ckcSOC Docker Compose — Hybrid Mode
+# Infrastructure (Kafka, ES) in Docker + Pipeline runs as one-shot job
+# Ollama must run natively for M4 GPU: ollama serve
 
 x-soc-base: &soc-base
   build: .
-  restart: unless-stopped
+  restart: 'no'
   environment:
     - KAFKA_BOOTSTRAP=kafka:9092
     - HF_HOME=/app/models/hf_ner
-    - OLLAMA_URL=http://ollama:11434
+    - OLLAMA_URL=http://host.docker.internal:11434
+    - ES_URL=http://elasticsearch:9200
   volumes:
     - ./models:/app/models
     - ./state:/app/state
     - ./datasets:/app/datasets
+  depends_on:
+    kafka:
+      condition: service_healthy
+    elasticsearch:
+      condition: service_healthy
 
 services:
 
+  # ── Infrastructure ──────────────────────────────
   kafka:
     image: apache/kafka:3.9.2
     ports: ['9092:9092']
@@ -21,14 +30,18 @@ services:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: broker,controller
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,CONTROLLER://0.0.0.0:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
       KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
       CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
     healthcheck:
-      test: ['CMD','kafka-topics.sh','--bootstrap-server','localhost:9092','--list']
+      test: ['CMD-SHELL', '/opt/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list || exit 1']
       interval: 10s
-      retries: 5
+      timeout: 10s
+      retries: 10
+      start_period: 30s
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:8.12.0
@@ -39,71 +52,33 @@ services:
     ports: ['9200:9200']
     volumes: [es_data:/usr/share/elasticsearch/data]
     healthcheck:
-      test: ['CMD','curl','-f','http://localhost:9200/_cluster/health']
-      interval: 15s
+      test: ['CMD', 'curl', '-sf', 'http://localhost:9200/_cluster/health']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
-  ollama:
-    image: ollama/ollama:latest
-    ports: ['11434:11434']
-    volumes: [ollama_models:/root/.ollama]
-
-  dataset-builder:
+  # ── Pipeline Runner (one-shot batch) ────────────
+  # Runs the full 11-layer LangGraph pipeline then exits.
+  # Ollama must be running natively: ollama serve
+  pipeline:
     <<: *soc-base
-    command: python datasets/synthetic_dataset_builder.py
-    restart: 'no'
+    command: python run_demo.py --no-plots
+    profiles: ['run']
 
-  ingestor:
-    <<: *soc-base
-    command: python -m pipeline.phase1_ingest --serve
-    depends_on: [kafka]
-
-  normalizer:
-    <<: *soc-base
-    command: python -m pipeline.phase2_normalize --serve
-    depends_on: [kafka]
-
-  correlator:
-    <<: *soc-base
-    command: python -m pipeline.phase3_correlate --serve
-    depends_on: [kafka]
-
-  scorer:
-    <<: *soc-base
-    command: uvicorn api.scorer_api:app --host 0.0.0.0 --port 8001
-    ports: ['8001:8001']
-    depends_on: [kafka]
-
-  explainability:
-    <<: *soc-base
-    command: python -m pipeline.phase5_explain --serve
-    depends_on: [kafka]
-
-  playbook-gen:
-    <<: *soc-base
-    command: python -m pipeline.phase6_playbook --serve
-    depends_on: [kafka, ollama]
-
-  aegis:
-    <<: *soc-base
-    command: python -m pipeline.phase7_aegis --serve
-    depends_on: [kafka]
-
-  human-gate:
-    <<: *soc-base
-    command: python -m pipeline.phase8_approval --serve
-    depends_on: [kafka]
-
+  # ── API Gateway ─────────────────────────────────
+  # Serves dashboard data from state/ files to the React frontend.
   gateway:
     <<: *soc-base
     command: uvicorn api.gateway_api:app --host 0.0.0.0 --port 8000
     ports: ['8000:8000']
-    depends_on: [kafka, scorer]
+    restart: unless-stopped
 
+  # ── Drift Monitor ──────────────────────────────
   drift-monitor:
     <<: *soc-base
     command: python -m pipeline.drift_monitor
-    depends_on: [kafka, scorer]
+    restart: unless-stopped
 
 volumes:
   es_data:
-  ollama_models:

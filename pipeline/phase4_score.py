@@ -82,7 +82,7 @@ def _tsfresh_fv(cluster) -> list:
             column_value=None,
             default_fc_parameters=EfficientFCParameters(),
             disable_progressbar=True,
-            n_jobs=-1,   # use all CPU cores (M4 has 10)
+            n_jobs=1,   # n_jobs=-1 causes silent multiprocessing failure on macOS Python 3.13
         )
 
         # Drop all-NaN / constant columns

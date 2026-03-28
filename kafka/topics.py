@@ -9,4 +9,5 @@ PLAYBOOK_TOPIC   = 'playbook_recommendations'
 GOVERNANCE_TOPIC = 'governance_decisions'
 AUDIT_TOPIC      = 'approval_audit'
 DLQ_SUFFIX       = '_dlq'
-BOOTSTRAP        = 'localhost:9092'
+import os
+BOOTSTRAP        = os.environ.get('KAFKA_BOOTSTRAP', 'localhost:9092')

@@ -1,7 +1,9 @@
 # pipeline/es_store.py
 """Elasticsearch integration — index incidents and playbooks for searchability."""
-import json
+import os, json
 from datetime import datetime, timezone
+
+ES_URL = os.environ.get('ES_URL', 'http://localhost:9200')
 
 _es_client = None
 _es_available = None
@@ -14,7 +16,7 @@ def _get_es():
         try:
             from elasticsearch import Elasticsearch
             _es_client = Elasticsearch(
-                ['http://localhost:9200'],
+                [ES_URL],
                 request_timeout=10,
                 max_retries=2
             )
