@@ -12,13 +12,16 @@ import argparse, json, time
 from pathlib import Path
 from soc_graph import SOC_APP, _initial_state
 
-def run(no_plots=False, dataset='datasets/all_events.json', verbose=False, limit=None):
+def run(no_plots=False, dataset='datasets/all_events.json', verbose=False,
+        limit=None, source='file'):
     print('='*60)
     print('ckcSOC — 11-Layer Cyber Incident Response Pipeline')
     print('Team CKC  ·  Hack O Hire 2026  ·  Barclays SOC')
     if verbose:
         cap = limit or 1000
         print(f'[VERBOSE MODE] Showing per-event logs | Event cap: {cap}')
+    if source == 'kafka':
+        print('[SOURCE] Kafka — events will be drained from real Kafka topics')
     print('='*60)
 
     # Verify dataset exists
@@ -37,6 +40,7 @@ def run(no_plots=False, dataset='datasets/all_events.json', verbose=False, limit
         'dataset':   dataset,
         'verbose':   verbose,
         'limit':     limit,
+        'source':    source,
     }
 
     start = time.time()
@@ -75,5 +79,8 @@ if __name__ == '__main__':
     ap.add_argument('--verbose',  action='store_true', help='Print per-event logs at every layer (auto-caps at 1k)')
     ap.add_argument('--limit',    type=int, default=None, help='Cap number of events (e.g. --limit 1000)')
     ap.add_argument('--dataset',  default='datasets/all_events.json', help='Path to events dataset')
+    ap.add_argument('--source',   default='file', choices=['file','kafka'],
+                    help='Ingestion source: file (default) or kafka')
     args = ap.parse_args()
-    run(no_plots=args.no_plots, dataset=args.dataset, verbose=args.verbose, limit=args.limit)
+    run(no_plots=args.no_plots, dataset=args.dataset,
+        verbose=args.verbose, limit=args.limit, source=args.source)

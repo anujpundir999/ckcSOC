@@ -1,1 +1,1 @@
-# kafka package
+# kafka/__init__.py
