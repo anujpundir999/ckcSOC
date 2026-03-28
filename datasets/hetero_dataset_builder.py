@@ -84,6 +84,8 @@ def make_json_event(src, evt_type, user, is_anomalous=False, hour=12):
     })
 
 
+CSV_HEADER = 'username,action,src_ip,hostname,timestamp,source,is_anomalous,rows_accessed'
+
 def make_csv_row(src, evt_type, user, is_anomalous=False, hour=12):
     """CSV row (database audit format — common in financial SOC)."""
     return (f'{user},{evt_type},{random.choice(IPS)},{random.choice(DEVICES)},'

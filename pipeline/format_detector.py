@@ -35,6 +35,11 @@ FIELD_ALIASES = {
     'timestamp':  'event_time_utc', 'time': 'event_time_utc',
     'datetime':   'event_time_utc', 'date': 'event_time_utc',
     'ts':         'event_time_utc', 'log_time': 'event_time_utc',
+    # Anomaly flag variants → is_anomalous
+    'anomalous':    'is_anomalous', 'anomaly':      'is_anomalous',
+    'is_anomalous': 'is_anomalous', 'suspicious':   'is_anomalous',
+    # Rows accessed variants
+    'rows_accessed': 'rows_accessed', 'rows': 'rows_accessed',
     # Source variants
     'source':     'source_system', 'src':  'source_system',
     'facility':   'source_system', 'app':  'source_system',
@@ -93,11 +98,30 @@ def _remap_fields(d: dict) -> dict:
     return out
 
 
+def _coerce_types(payload: dict) -> dict:
+    """Coerce string booleans and integers to proper Python types."""
+    result = {}
+    for k, v in payload.items():
+        if isinstance(v, str):
+            if v.lower() in ('true', 'yes', '1'): result[k] = True
+            elif v.lower() in ('false', 'no', '0'): result[k] = False
+            else:
+                try: result[k] = int(v)
+                except (ValueError, TypeError):
+                    try: result[k] = float(v)
+                    except (ValueError, TypeError): result[k] = v
+        else:
+            result[k] = v
+    return result
+
+
 def _make_envelope(payload: dict, source_raw: str = None, ts: str = None) -> dict:
     """Wrap a parsed payload dict into a canonical SOC envelope."""
     # Extract + remove meta fields from payload before wrapping
     source = _normalize_source(source_raw or payload.pop('source_system', None) or '')
     event_time = ts or payload.pop('event_time_utc', None) or _now_utc()
+    # Coerce string 'true'/'false' → bool, string numbers → int
+    payload = _coerce_types(payload)
 
     return {
         'message_id':      str(uuid.uuid4()),
@@ -119,12 +143,34 @@ def _parse_json(raw: str) -> list:
     return [data]
 
 
+# Fixed header order matching hetero_dataset_builder.py CSV format
+_CSV_HEADER = 'username,action,src_ip,hostname,timestamp,source,is_anomalous,rows_accessed'
+
 def _parse_csv(raw: str) -> list:
-    """Parse CSV with arbitrary headers → canonical envelopes."""
-    reader = csv.DictReader(io.StringIO(raw.strip()))
+    """Parse CSV with arbitrary headers → canonical envelopes.
+    Handles both headed CSV (file-mode) and headerless single rows (Kafka-mode).
+    """
+    lines = raw.strip().splitlines()
+    if not lines:
+        return []
+
+    first = lines[0].strip()
+    # Detect if first line looks like a header (contains column names, not data)
+    is_header = any(word in first.lower() for word in
+                    ['user', 'action', 'event', 'timestamp', 'host', 'source', 'ip'])
+
+    if is_header and len(lines) > 1:
+        # Proper csv with header
+        reader = csv.DictReader(io.StringIO(raw.strip()))
+    elif not is_header:
+        # Headerless — prepend our known header
+        reader = csv.DictReader(io.StringIO(_CSV_HEADER + '\n' + raw.strip()))
+    else:
+        reader = csv.DictReader(io.StringIO(raw.strip()))
+
     result = []
     for row in reader:
-        d = _remap_fields({k: v for k, v in row.items() if v.strip()})
+        d = _remap_fields({k: v for k, v in row.items() if v and v.strip()})
         result.append(_make_envelope(d))
     return result
 
