@@ -51,5 +51,4 @@ datasets/synthetic_dataset_builder.py
 pipeline/pipeline_key.py
 BACKEND_SETUP.md
 FRONTEND_SETUP.md
-README.md
 CHAT_CONTEXT.md

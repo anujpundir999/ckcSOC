@@ -35,7 +35,11 @@ from pyod.models.iforest import IForest
 _model         = None
 _baseline_mean = None
 _baseline_std  = None
+_baseline_median = None
+_baseline_mad = None
 _feature_dim   = 9  # fallback if tsfresh unavailable
+_small_sample_mode = False
+_small_sample_cutoff = 20
 
 # ── Feature Extraction ───────────────────────────────────────
 
@@ -127,12 +131,46 @@ def _zscore_score(fv, mean, std):
     z = np.abs((fv_arr[:n] - mean[:n]) / (std[:n] + 1e-9))
     return float(expit(2 * (z.mean() - 1)))
 
+
+def _mad_score(fv, median, mad):
+    fv_arr = np.array(fv)
+    n = min(len(fv_arr), len(median))
+    robust_z = np.abs((fv_arr[:n] - median[:n]) / (mad[:n] + 1e-9))
+    return float(expit(1.8 * (robust_z.mean() - 1)))
+
+
+def _small_batch_signal(cluster):
+    flag_set = set(cluster.get('escalation_flags', []))
+    critical = {'credential_then_privilege', 'lateral_movement_suspected'}
+    high = {'failure_then_data_access', 'email_exfiltration_risk'}
+
+    score = 0.0
+    if flag_set & critical:
+        score += 0.45
+    elif flag_set & high:
+        score += 0.30
+
+    hints = len(cluster.get('risk_hint_summary', []))
+    score += min(hints * 0.06, 0.24)
+
+    ratio = cluster.get('anomalous_count', 0) / max(cluster.get('log_count', 1), 1)
+    score += min(ratio, 1.0) * 0.25
+
+    corr = float(cluster.get('correlation_score', 0.0))
+    score += min(corr, 1.0) * 0.35
+
+    sev = float(cluster.get('explicit_severity_max', 0.0))
+    score += min(sev, 1.0) * 0.40
+    return min(score, 1.0)
+
 def _fidelity(cluster):
     sys_s  = min(len(cluster['source_systems']) / 6, 1.0)
     flag_s = min(len(cluster['escalation_flags']) / 3, 1.0)
     hint_s = min(len(cluster['risk_hint_summary']) / 5, 1.0)
     ratio  = cluster['anomalous_count'] / max(cluster['log_count'], 1)
-    return round(0.35*sys_s + 0.30*flag_s + 0.20*hint_s + 0.15*ratio, 4)
+    corr = min(float(cluster.get('correlation_score', 0.0)), 1.0)
+    sev = min(float(cluster.get('explicit_severity_max', 0.0)), 1.0)
+    return round(0.24*sys_s + 0.20*flag_s + 0.16*hint_s + 0.08*ratio + 0.17*corr + 0.15*sev, 4)
 
 def _severity(score):
     if score >= 0.65: return 'High'
@@ -165,6 +203,17 @@ def _train_baseline(clusters):
     X = np.array(normal_padded)
     _baseline_mean = X.mean(0)
     _baseline_std  = X.std(0) + 1e-9
+    _baseline_median = np.median(X, axis=0)
+    _baseline_mad = np.median(np.abs(X - _baseline_median), axis=0) + 1e-9
+
+    _small_sample_mode = len(normal_padded) < _small_sample_cutoff
+
+    if _small_sample_mode:
+        _model = None
+        ts_mode = "tsfresh" if _TSFRESH_OK else "manual"
+        print(f'[PHASE 4] Baseline trained on {len(normal)} clusters | '
+              f'Feature dim: {_feature_dim} | Mode: {ts_mode} | Scorer: small-sample-robust')
+        return
 
     # IsolationForest with tsfresh-level features
     _model = IForest(
@@ -182,11 +231,25 @@ def _train_baseline(clusters):
 def score_cluster(cluster):
     raw_fv  = _fv(cluster)
     fv      = _pad(raw_fv, _feature_dim)
-    z_score  = _zscore_score(fv, _baseline_mean, _baseline_std)
-    if_score = float(expit(_model.decision_function([fv])[0] * -3))
-    anomaly  = (z_score + if_score) / 2
+
+    explicit_severity = min(float(cluster.get('explicit_severity_max', 0.0)), 1.0)
+
+    if _small_sample_mode or _model is None:
+        robust = _mad_score(fv, _baseline_median, _baseline_mad)
+        z_score = _zscore_score(fv, _baseline_mean, _baseline_std)
+        signal = _small_batch_signal(cluster)
+        anomaly = (0.30 * robust) + (0.15 * z_score) + (0.40 * signal) + (0.15 * explicit_severity)
+    else:
+        z_score  = _zscore_score(fv, _baseline_mean, _baseline_std)
+        if_score = float(expit(_model.decision_function([fv])[0] * -3))
+        anomaly  = ((z_score + if_score) / 2)
+        anomaly  = (0.85 * anomaly) + (0.15 * explicit_severity)
+
     fidelity = _fidelity(cluster)
     combined = round(0.6 * anomaly + 0.4 * fidelity, 4)
+    severity = _severity(combined)
+    if explicit_severity >= 0.85 and combined >= 0.5:
+        severity = 'High'
 
     return {**cluster,
         'feature_vector':  raw_fv[:9],   # Keep 9-dim for Sentinel (schema compat)
@@ -195,7 +258,8 @@ def score_cluster(cluster):
         'fidelity_score':  fidelity,
         'combined_score':  combined,
         'final_score':     combined,
-        'severity':        _severity(combined),
+        'severity':        severity,
+        'explicit_severity': round(explicit_severity, 4),
         'event_sequence':  [l['event_type'] for l in cluster['logs']],
     }
 

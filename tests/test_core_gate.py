@@ -5,7 +5,7 @@ import pytest
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 from pipeline.phase2_normalize import normalize_one, EVENT_CATEGORY_MAP
-from pipeline.phase3_correlate import _detect_flags, _is_subseq, _priority
+from pipeline.phase3_correlate import _detect_flags, _is_subseq, _priority, run as correlate_run
 from pipeline.phase4_score import _fv, _severity
 from pipeline.phase7_aegis import evaluate_action
 from pipeline.phase10_attack_path import map_cluster
@@ -90,3 +90,53 @@ def test_severity_thresholds():
 def test_aegis_allows_nondisruptive():
     result = evaluate_action('monitor user activity', 'email-gw')
     assert result['decision'] == 'allow'
+
+
+# ── Test 9: Shared-IP campaign correlation across users ──
+def test_shared_ip_campaign_cluster_created():
+    normalized = [
+        {
+            'normalized_timestamp': '2026-03-27T11:00:00Z',
+            'user': 'alice@bank.local',
+            'ip': '203.0.113.45',
+            'device': 'Browser',
+            'event_type': 'login_failure',
+            'event_category': 'authentication',
+            'source_system': 'auth',
+            'risk_hints': ['off_hours'],
+            'privilege_indicator': False,
+            'is_anomalous': True,
+            'raw_payload': {},
+        },
+        {
+            'normalized_timestamp': '2026-03-27T11:01:00Z',
+            'user': 'bob@bank.local',
+            'ip': '203.0.113.45',
+            'device': 'Browser',
+            'event_type': 'login_failure',
+            'event_category': 'authentication',
+            'source_system': 'auth',
+            'risk_hints': [],
+            'privilege_indicator': False,
+            'is_anomalous': True,
+            'raw_payload': {},
+        },
+        {
+            'normalized_timestamp': '2026-03-27T11:02:00Z',
+            'user': 'charlie@bank.local',
+            'ip': '203.0.113.45',
+            'device': 'Browser',
+            'event_type': 'login_success',
+            'event_category': 'authentication',
+            'source_system': 'auth',
+            'risk_hints': [],
+            'privilege_indicator': False,
+            'is_anomalous': True,
+            'raw_payload': {},
+        },
+    ]
+
+    clusters = correlate_run({'normalized': normalized})
+    campaign_clusters = [c for c in clusters if c.get('cluster_kind') == 'ip_campaign']
+    assert campaign_clusters, 'Expected at least one ip_campaign cluster'
+    assert 'multi_user_shared_ip_campaign' in campaign_clusters[0]['escalation_flags']
