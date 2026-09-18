@@ -236,7 +236,20 @@ def run(state: dict) -> list:
     playbooks  = []
 
     for sc, ap in zip(scored, atk_paths):
-        if sc['severity'] in ('High', 'Critical'):
+        should_generate = sc['severity'] in ('High', 'Critical')
+        if not should_generate and sc['severity'] == 'Medium':
+            corr = float(sc.get('correlation_score', 0.0))
+            seq = float(sc.get('sequence_risk', 0.0))
+            ent = float(sc.get('entity_risk', 0.0))
+            sev = float(sc.get('explicit_severity', sc.get('explicit_severity_max', 0.0)))
+            should_generate = (
+                corr >= 0.60
+                or (seq >= 0.65 and ent >= 0.45)
+                or (sc.get('anomalous_count', 0) >= 2 and corr >= 0.50)
+                or sev >= 0.75
+            )
+
+        if should_generate:
             pb = generate_one(sc, sc, ap)
             playbooks.append(pb)
             if pb['source'] == 'ollama_llm':
