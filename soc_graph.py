@@ -32,29 +32,62 @@ def _initial_state() -> SOCState:
                     audit_path=None, sentinel_matches=[], needs_resubmit=False,
                     playbook_revision=0, runtime_meta={})
 
+
+def _vlog(state, phase: int, name: str, items: list, fields: list):
+    """Print verbose per-item log for a pipeline phase."""
+    if not state.get('runtime_meta', {}).get('verbose'):
+        return
+    bar = '-' * 55
+    print(f'\n{bar}')
+    print(f'  ► LAYER {phase:02d}: {name.upper()} — {len(items)} items')
+    print(bar)
+    for i, item in enumerate(items[:20]):          # show max 20
+        parts = []
+        for f in fields:
+            val = item.get(f, '—')
+            if isinstance(val, list): val = str(val)[:40]
+            if isinstance(val, float): val = f'{val:.4f}'
+            parts.append(f'{f}={val}')
+        print(f'  [{i+1:03d}] {" | ".join(parts)}')
+    if len(items) > 20:
+        print(f'  ... and {len(items)-20} more')
+    print(bar + '\n')
+
 # ── Nodes ──
 def ingest_node(state):
     state['raw_logs'] = phase1_ingest.run(state)
+    _vlog(state, 1, 'Ingest', state['raw_logs'],
+          ['message_id', 'source_system', 'event_time_utc'])
     return state
 
 def normalize_node(state):
     state['normalized'] = phase2_normalize.run(state)
+    _vlog(state, 2, 'Normalize', state['normalized'],
+          ['user', 'event_type', 'source_system', 'normalized_timestamp'])
     return state
 
 def correlate_node(state):
     state['clusters'] = phase3_correlate.run(state)
+    _vlog(state, 3, 'Correlate', state['clusters'],
+          ['cluster_id', 'primary_user', 'log_count', 'escalation_flags', 'priority'])
     return state
 
 def score_node(state):
     state['scored'] = phase4_score.run(state)
+    _vlog(state, 4, 'Score', state['scored'],
+          ['cluster_id', 'severity', 'anomaly_score', 'fidelity_score', 'escalation_flags'])
     return state
 
 def explain_node(state):
     state['explainability'] = phase5_explain.run(state)
+    _vlog(state, 5, 'Explain', state['explainability'],
+          ['cluster_id', 'severity', 'narrative'])
     return state
 
 def attack_path_node(state):
     state['attack_paths'] = phase10_attack_path.run(state)
+    _vlog(state, 10, 'Attack Path', state['attack_paths'],
+          ['cluster_id', 'kill_chain', 'high_risk_assets'])
     return state
 
 def playbook_node(state):
@@ -62,10 +95,14 @@ def playbook_node(state):
     state['playbook_revision'] = state.get('playbook_revision', 0) + (
         1 if state.get('needs_resubmit') else 0)
     state['needs_resubmit'] = False
+    _vlog(state, 6, 'Playbook', state['playbooks'],
+          ['cluster_id', 'severity', 'source', 'confidence'])
     return state
 
 def aegis_node(state):
     state['governance_details'] = phase7_aegis.run(state)
+    _vlog(state, 7, 'AEGIS', state['governance_details'],
+          ['cluster_id', 'overall'])
     return state
 
 def approval_node(state):
@@ -73,10 +110,14 @@ def approval_node(state):
     state['approvals']       = result['approvals']
     state['audit_path']      = result['audit_path']
     state['needs_resubmit']  = result.get('needs_resubmit', False)
+    _vlog(state, 8, 'Approval', state['approvals'],
+          ['cluster_id', 'status', 'outcome'])
     return state
 
 def sentinel_node(state):
     state['sentinel_matches'] = phase9_sentinel.run(state)
+    _vlog(state, 9, 'Sentinel', state['sentinel_matches'],
+          ['cluster_id'])
     return state
 
 def feedback_node(state):

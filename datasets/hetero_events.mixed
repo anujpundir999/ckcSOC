@@ -1,0 +1,736 @@
+<14>Mar 21 08:08:01 JUMP-BOX01 sshd: user=eve.jones event=login_success src_ip=192.168.1.5 hostname=JUMP-BOX01 anomalous=False
+<14>Mar 21 17:18:04 WIN-WKST04 pf: user=dave.smith event=network_transfer src_ip=10.0.0.2 hostname=WIN-WKST04 anomalous=False
+{"message_id": "6a30f9ab-3a26-4873-98cf-94efb70f7541", "event_time_utc": "2026-03-21T09:58:09.885244+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "network_transfer", "ip": "10.0.0.17", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "97bb98ee-dd16-48a0-896d-7943f6854dff", "event_time_utc": "2026-03-21T18:51:04.752366+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"actor": "frank.liu", "event": "login_failure"}}
+<14>Mar 21 17:57:15 UNKNOWN-9F3 pf: user=carol.patel event=network_transfer src_ip=192.168.1.11 hostname=UNKNOWN-9F3 anomalous=False
+{"message_id": "fc8b7c45-ee81-4b7b-8106-581eaf97902a", "event_time_utc": "2026-03-21T15:01:09.216280+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "login_success", "src_ip": "10.0.0.11", "hostname": "CORP-LT01", "anomaly": false}}
+eve.jones,login_success,10.0.0.9,WIN-WKST04,2026-03-21T16:43:44.225097+00:00,auth,false,0
+<14>Mar 21 13:24:24 CORE-SRV02 sshd: user=carol.patel event=login_success src_ip=192.168.1.8 hostname=CORE-SRV02 anomalous=False
+eve.jones,process_create,10.0.0.8,UNKNOWN-9F3,2026-03-21T10:22:20.202711+00:00,edr,false,0
+eve.jones,login_success,192.168.1.6,CORP-LT02,2026-03-21T13:18:23.203109+00:00,auth,false,0
+<14>Mar 21 08:54:25 CORP-LT02 crowdstrike: user=grace.kim event=process_create src_ip=10.0.0.14 hostname=CORP-LT02 anomalous=False
+{"message_id": "5f5ce586-f9ab-4668-ab99-a3b84689b474", "event_time_utc": "2026-03-21T12:16:01.568281+00:00", "source_system": "database", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "db_access"}}
+frank.liu,login_success,10.0.0.8,WIN-WKST04,2026-03-21T19:21:21.618939+00:00,auth,false,0
+alice.morgan,siem_alert,192.168.1.2,UNKNOWN-9F3,2026-03-21T18:23:57.619136+00:00,siem,false,0
+<14>Mar 21 08:01:10 CORP-LT02 pf: user=frank.liu event=network_transfer src_ip=10.0.0.15 hostname=CORP-LT02 anomalous=False
+{"message_id": "b060a3bb-4ea3-404d-b3f7-023e03abf81e", "event_time_utc": "2026-03-21T13:25:01.778223+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_success"}}
+{"message_id": "08531f47-0a4b-4088-a7b2-137f49c0b333", "event_time_utc": "2026-03-21T14:34:44.065551+00:00", "source_system": "email", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "email_alert"}}
+grace.kim,login_failure,10.0.0.1,WIN-WKST04,2026-03-21T07:58:17.731159+00:00,auth,false,0
+{"message_id": "b4843b06-2e40-4249-984c-2b150fb0e839", "event_time_utc": "2026-03-21T18:56:08.143194+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "db_access", "src_ip": "10.0.0.11", "hostname": "CORP-PC07", "anomaly": false}}
+{"message_id": "efca7f12-ba4d-4a85-8ebe-3fbfb12ec575", "event_time_utc": "2026-03-21T18:54:05.425648+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_success"}}
+<14>Mar 21 18:43:20 CORE-SRV02 sshd: user=alice.morgan event=login_success src_ip=192.168.1.7 hostname=CORE-SRV02 anomalous=False
+<14>Mar 21 18:39:50 UNKNOWN-9F3 postfix: user=carol.patel event=email_alert src_ip=10.0.0.8 hostname=UNKNOWN-9F3 anomalous=False
+mallory.breach,login_failure,192.168.1.13,JUMP-BOX01,2026-03-21T02:11:14.160274+00:00,auth,true,0
+timestamp=2026-03-21T15:07:26.585900+00:00 actor=eve.jones action=login_success src_ip=192.168.1.2 hostname=JUMP-BOX01 facility=ActiveDirectory anomalous=False rows_accessed=0
+frank.liu,db_access,10.0.0.13,CORP-PC07,2026-03-21T13:33:17.922392+00:00,db,false,4474
+{"message_id": "3b8674c9-87f0-4484-9abe-825176e52b26", "event_time_utc": "2026-03-21T16:35:27.041445+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "network_transfer", "ip": "192.168.1.5", "device": "CORP-LT02", "is_anomalous": false}}
+{"message_id": "c381939b-d1e4-49a4-a402-874d87985fb0", "event_time_utc": "2026-03-21T09:47:09.134939+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "process_create", "ip": "10.0.0.7", "device": "CORP-LT02", "is_anomalous": false}}
+alice.morgan,siem_alert,10.0.0.7,UNKNOWN-9F3,2026-03-21T12:43:58.078435+00:00,siem,false,0
+grace.kim,siem_alert,10.0.0.9,CORP-LT01,2026-03-21T07:51:34.860583+00:00,siem,false,0
+dave.smith,siem_alert,10.0.0.19,CORP-LT02,2026-03-21T13:08:38.615209+00:00,siem,false,0
+grace.kim,email_alert,10.0.0.8,CORE-SRV02,2026-03-21T17:23:55.235732+00:00,email,false,0
+{"message_id": "1b56d827-cc06-4bc0-a9a0-822db1484ebe", "event_time_utc": "2026-03-21T20:25:46.143320+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "siem_alert"}}
+<14>Mar 21 19:44:15 CORP-PC07 sshd: user=frank.liu event=login_success src_ip=10.0.0.16 hostname=CORP-PC07 anomalous=False
+{"message_id": "780bf2ab-e8c5-4e11-b922-8048b3bc95da", "event_time_utc": "2026-03-21T09:30:28.386152+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "login_success", "src_ip": "192.168.1.8", "hostname": "CORP-LT01", "anomaly": false}}
+{"message_id": "73d97dee-01da-4772-9a42-a91a9439e9f1", "event_time_utc": "2026-03-21T13:59:50.940083+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "process_create"}}
+bob.chen,login_success,10.0.0.15,JUMP-BOX01,2026-03-21T10:25:22.935328+00:00,auth,false,0
+{"message_id": "0ed6fb25-1637-4b12-830a-4d0b9ab28b39", "event_time_utc": "2026-03-21T16:00:10.121783+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "login_failure", "src_ip": "192.168.1.7", "hostname": "CORP-LT01", "anomaly": false}}
+grace.kim,login_success,10.0.0.12,UNKNOWN-9F3,2026-03-21T11:14:47.476110+00:00,auth,false,0
+{"message_id": "ebb6d620-3236-4ecb-9873-2e63abb79056", "event_time_utc": "2026-03-21T03:11:57.099256+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "mallory.breach", "action": "login_failure", "src_ip": "192.168.1.6", "hostname": "CORP-PC07", "anomaly": true}}
+bob.chen,process_create,10.0.0.7,WIN-WKST04,2026-03-21T10:52:39.982918+00:00,edr,false,0
+timestamp=2026-03-21T19:36:13.844161+00:00 actor=frank.liu action=db_access src_ip=192.168.1.12 hostname=CORP-LT02 facility=DataSunrise anomalous=False rows_accessed=99
+bob.chen,network_transfer,192.168.1.2,UNKNOWN-9F3,2026-03-21T20:45:55.742303+00:00,network,false,0
+timestamp=2026-03-21T10:55:07.919694+00:00 actor=alice.morgan action=db_access src_ip=192.168.1.3 hostname=DB-SRV01 facility=DataSunrise anomalous=False rows_accessed=1370
+<14>Mar 21 15:24:34 JUMP-BOX01 postfix: user=bob.chen event=email_alert src_ip=10.0.0.19 hostname=JUMP-BOX01 anomalous=False
+<14>Mar 21 17:52:30 JUMP-BOX01 sshd: user=henry.tan event=login_failure src_ip=10.0.0.10 hostname=JUMP-BOX01 anomalous=False
+{"message_id": "20274980-7e92-4734-b7ae-713519c03532", "event_time_utc": "2026-03-21T10:25:59.108343+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"user": "frank.liu", "event": "login_success", "ip": "192.168.1.6", "device": "DB-SRV01", "is_anomalous": false}}
+dave.smith,login_success,10.0.0.1,CORP-LT02,2026-03-21T14:11:25.843406+00:00,auth,false,0
+grace.kim,login_failure,10.0.0.19,CORP-PC07,2026-03-21T12:38:43.509428+00:00,auth,false,0
+alice.morgan,login_success,192.168.1.11,CORP-LT02,2026-03-21T12:41:18.423751+00:00,auth,false,0
+timestamp=2026-03-21T11:02:52.362804+00:00 actor=henry.tan action=email_alert src_ip=10.0.0.19 hostname=JUMP-BOX01 facility=Proofpoint anomalous=False rows_accessed=0
+timestamp=2026-03-21T17:08:56.723989+00:00 actor=grace.kim action=db_access src_ip=10.0.0.8 hostname=JUMP-BOX01 facility=DataSunrise anomalous=False rows_accessed=1507
+<14>Mar 21 08:17:34 JUMP-BOX01 splunk: user=bob.chen event=siem_alert src_ip=10.0.0.17 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T09:45:44.148901+00:00 actor=dave.smith action=process_create src_ip=10.0.0.16 hostname=CORP-LT02 facility=CrowdStrike anomalous=False rows_accessed=0
+{"message_id": "5748a044-1ae9-45fa-b4f6-915364d8c841", "event_time_utc": "2026-03-21T12:44:37.533487+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "login_failure", "src_ip": "10.0.0.1", "hostname": "CORP-LT02", "anomaly": false}}
+<14>Mar 21 17:04:24 JUMP-BOX01 oracle: user=grace.kim event=db_access src_ip=10.0.0.13 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T15:13:21.847888+00:00 actor=frank.liu action=siem_alert src_ip=10.0.0.13 hostname=CORP-PC07 facility=siem anomalous=False rows_accessed=0
+<14>Mar 21 15:47:30 DB-SRV01 postfix: user=henry.tan event=email_alert src_ip=192.168.1.14 hostname=DB-SRV01 anomalous=False
+{"message_id": "12049f1a-7523-4608-8a19-aca3e2f0df88", "event_time_utc": "2026-03-21T12:04:51.801735+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "process_create", "src_ip": "10.0.0.9", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "f2088049-3f73-43d3-84db-b3aa6c00ffc3", "event_time_utc": "2026-03-21T12:34:06.557350+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "network_transfer", "src_ip": "10.0.0.7", "hostname": "WIN-WKST04", "anomaly": false}}
+timestamp=2026-03-21T12:39:41.084122+00:00 actor=carol.patel action=login_success src_ip=10.0.0.8 hostname=CORP-LT01 facility=ActiveDirectory anomalous=False rows_accessed=0
+bob.chen,siem_alert,192.168.1.8,DB-SRV01,2026-03-21T13:43:41.743362+00:00,siem,false,0
+oscar.threat,login_success,192.168.1.3,CORP-LT01,2026-03-21T03:52:07.854651+00:00,auth,true,0
+timestamp=2026-03-21T19:54:54.558221+00:00 actor=dave.smith action=login_success src_ip=10.0.0.19 hostname=WIN-WKST04 facility=ActiveDirectory anomalous=False rows_accessed=0
+henry.tan,db_access,192.168.1.7,CORP-LT02,2026-03-21T16:28:23.844938+00:00,db,false,4431
+{"message_id": "be4cd4ee-4dc8-4f8b-bbbe-c6bdd6b2f5de", "event_time_utc": "2026-03-21T12:52:40.174913+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "login_success"}}
+<14>Mar 21 12:16:17 CORE-SRV02 pf: user=eve.jones event=network_transfer src_ip=10.0.0.13 hostname=CORE-SRV02 anomalous=False
+grace.kim,db_access,192.168.1.10,JUMP-BOX01,2026-03-21T12:41:18.707443+00:00,db,false,4089
+<14>Mar 21 16:08:50 DB-SRV01 splunk: user=bob.chen event=siem_alert src_ip=10.0.0.10 hostname=DB-SRV01 anomalous=False
+{"message_id": "20abcd87-53e5-4e95-8611-f80758a05542", "event_time_utc": "2026-03-21T03:12:44.296447+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"actor": "oscar.threat", "event": "process_create"}}
+{"message_id": "87650b83-2713-4570-b3ac-aa49b2c61bc5", "event_time_utc": "2026-03-21T18:11:12.869844+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "siem_alert"}}
+eve.jones,siem_alert,10.0.0.2,DB-SRV01,2026-03-21T11:32:02.200714+00:00,siem,false,0
+{"message_id": "14995c1b-198a-43ce-8dca-4c849ed69ef9", "event_time_utc": "2026-03-21T15:20:24.765542+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_failure", "src_ip": "10.0.0.10", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "b9c32ac6-5fa5-4228-a255-a4df0e6e11bb", "event_time_utc": "2026-03-21T08:52:59.238784+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "carol.patel", "event": "login_failure"}}
+timestamp=2026-03-21T20:51:03.452954+00:00 actor=alice.morgan action=login_failure src_ip=192.168.1.13 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "31e4d39e-e409-493c-b294-323d417bd9db", "event_time_utc": "2026-03-21T12:56:08.474307+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "process_create", "src_ip": "192.168.1.13", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+timestamp=2026-03-21T13:35:16.315012+00:00 actor=eve.jones action=login_success src_ip=10.0.0.4 hostname=CORP-LT01 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T12:44:41.050342+00:00 actor=alice.morgan action=siem_alert src_ip=192.168.1.5 hostname=CORP-LT01 facility=siem anomalous=False rows_accessed=0
+{"message_id": "99faba0e-4778-4459-91e8-c46292776dac", "event_time_utc": "2026-03-21T19:05:16.997005+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_success"}}
+{"message_id": "c067e1f5-1262-4d29-a0d7-b7ee1cc4a6b5", "event_time_utc": "2026-03-21T08:58:42.464089+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_failure"}}
+alice.morgan,process_create,10.0.0.18,WIN-WKST04,2026-03-21T13:53:23.666765+00:00,edr,false,0
+carol.patel,login_success,192.168.1.6,CORP-LT02,2026-03-21T20:38:31.816103+00:00,auth,false,0
+timestamp=2026-03-21T11:32:30.334997+00:00 actor=eve.jones action=siem_alert src_ip=192.168.1.5 hostname=CORP-LT01 facility=siem anomalous=False rows_accessed=0
+timestamp=2026-03-21T21:10:47.346858+00:00 actor=grace.kim action=siem_alert src_ip=10.0.0.3 hostname=JUMP-BOX01 facility=siem anomalous=False rows_accessed=0
+<14>Mar 21 12:09:56 UNKNOWN-9F3 sshd: user=eve.jones event=login_success src_ip=10.0.0.2 hostname=UNKNOWN-9F3 anomalous=False
+dave.smith,login_success,192.168.1.11,JUMP-BOX01,2026-03-21T13:32:55.663845+00:00,auth,false,0
+{"message_id": "8e91d68e-4820-4a45-b496-08859d1401dd", "event_time_utc": "2026-03-21T11:06:53.493918+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "login_success"}}
+{"message_id": "ba2973f0-333a-47a5-93ba-39a167ab73bd", "event_time_utc": "2026-03-21T15:24:32.785424+00:00", "source_system": "database", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "db_access", "ip": "10.0.0.4", "device": "CORE-SRV02", "is_anomalous": false}}
+timestamp=2026-03-21T14:00:57.070833+00:00 actor=grace.kim action=login_failure src_ip=192.168.1.7 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "0cec8e2c-2fac-4a27-8869-c53955bed56a", "event_time_utc": "2026-03-21T17:08:43.659021+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"user": "carol.patel", "event": "login_success", "ip": "10.0.0.3", "device": "DB-SRV01", "is_anomalous": false}}
+{"message_id": "a8a20315-5927-4113-84bc-23214a2e4fe7", "event_time_utc": "2026-03-21T19:36:21.353619+00:00", "source_system": "db", "payload_version": "v1", "payload": {"user": "carol.patel", "event": "db_access", "ip": "10.0.0.18", "device": "CORE-SRV02", "is_anomalous": false}}
+henry.tan,email_alert,192.168.1.12,DB-SRV01,2026-03-21T19:31:18.600710+00:00,email,false,0
+<14>Mar 21 20:27:17 CORP-LT02 sshd: user=carol.patel event=login_failure src_ip=10.0.0.11 hostname=CORP-LT02 anomalous=False
+{"message_id": "e4d21abe-26c8-452e-b04b-f4b90e899249", "event_time_utc": "2026-03-21T15:40:51.184755+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_success", "src_ip": "192.168.1.12", "hostname": "CORP-LT02", "anomaly": false}}
+{"message_id": "ac9075b8-c5a9-400c-aefa-d0b6f3ee7b5b", "event_time_utc": "2026-03-21T18:05:23.091853+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "bob.chen", "action": "login_failure", "src_ip": "192.168.1.11", "hostname": "CORP-LT01", "anomaly": false}}
+<14>Mar 21 15:52:56 CORE-SRV02 pf: user=frank.liu event=network_transfer src_ip=10.0.0.13 hostname=CORE-SRV02 anomalous=False
+{"message_id": "d40b63db-dae0-4274-abe2-02e9ff08b204", "event_time_utc": "2026-03-21T16:32:21.008824+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "process_create", "src_ip": "10.0.0.9", "hostname": "JUMP-BOX01", "anomaly": false}}
+frank.liu,login_success,192.168.1.10,WIN-WKST04,2026-03-21T18:55:50.244881+00:00,auth,false,0
+{"message_id": "58102669-8ec8-426a-adb5-180edc08d9dd", "event_time_utc": "2026-03-21T19:14:19.128677+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"actor": "dave.smith", "event": "login_success"}}
+{"message_id": "34a985e2-3dff-4e19-85ea-bc9543b39763", "event_time_utc": "2026-03-21T15:48:23.368107+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "login_failure", "ip": "192.168.1.3", "device": "UNKNOWN-9F3", "is_anomalous": false}}
+<14>Mar 21 11:17:08 CORP-LT01 postfix: user=henry.tan event=email_alert src_ip=192.168.1.7 hostname=CORP-LT01 anomalous=False
+timestamp=2026-03-21T10:09:32.649786+00:00 actor=carol.patel action=siem_alert src_ip=10.0.0.11 hostname=DB-SRV01 facility=siem anomalous=False rows_accessed=0
+timestamp=2026-03-21T16:19:36.138080+00:00 actor=henry.tan action=db_access src_ip=192.168.1.3 hostname=UNKNOWN-9F3 facility=DataSunrise anomalous=False rows_accessed=722
+frank.liu,email_alert,10.0.0.17,CORE-SRV02,2026-03-21T07:45:15.908553+00:00,email,false,0
+eve.jones,network_transfer,10.0.0.4,JUMP-BOX01,2026-03-21T17:51:46.439310+00:00,network,false,0
+<14>Mar 21 08:39:32 CORE-SRV02 pf: user=henry.tan event=network_transfer src_ip=10.0.0.18 hostname=CORE-SRV02 anomalous=False
+<14>Mar 21 19:45:03 CORE-SRV02 oracle: user=henry.tan event=db_access src_ip=10.0.0.19 hostname=CORE-SRV02 anomalous=False
+dave.smith,email_alert,192.168.1.6,CORE-SRV02,2026-03-21T13:58:51.516190+00:00,email,false,0
+eve.jones,login_success,10.0.0.8,CORE-SRV02,2026-03-21T11:42:06.968699+00:00,auth,false,0
+<14>Mar 21 13:21:28 CORP-LT01 postfix: user=carol.patel event=email_alert src_ip=192.168.1.14 hostname=CORP-LT01 anomalous=False
+<14>Mar 21 03:04:40 CORP-LT02 crowdstrike: user=oscar.threat event=device_change src_ip=10.0.0.14 hostname=CORP-LT02 anomalous=True
+{"message_id": "4272e5e5-1da5-4c3f-a356-6e289c6a1fa1", "event_time_utc": "2026-03-21T14:13:58.054809+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "login_success"}}
+peggy.insider,login_success,192.168.1.5,CORP-LT01,2026-03-21T04:06:12.306545+00:00,auth,true,0
+<14>Mar 21 18:04:08 WIN-WKST04 oracle: user=carol.patel event=db_access src_ip=10.0.0.10 hostname=WIN-WKST04 anomalous=False
+<14>Mar 21 09:50:58 CORP-LT02 crowdstrike: user=frank.liu event=process_create src_ip=192.168.1.8 hostname=CORP-LT02 anomalous=False
+dave.smith,siem_alert,192.168.1.4,CORE-SRV02,2026-03-21T10:56:23.610369+00:00,siem,false,0
+<14>Mar 21 13:08:06 DB-SRV01 sshd: user=eve.jones event=login_success src_ip=10.0.0.15 hostname=DB-SRV01 anomalous=False
+frank.liu,process_create,10.0.0.15,WIN-WKST04,2026-03-21T08:31:03.754724+00:00,edr,false,0
+<14>Mar 21 16:04:31 JUMP-BOX01 oracle: user=eve.jones event=db_access src_ip=10.0.0.17 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T14:38:52.111998+00:00 actor=carol.patel action=login_failure src_ip=192.168.1.9 hostname=CORE-SRV02 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T19:57:26.686410+00:00 actor=alice.morgan action=siem_alert src_ip=10.0.0.5 hostname=DB-SRV01 facility=siem anomalous=False rows_accessed=0
+<14>Mar 21 08:56:01 UNKNOWN-9F3 sshd: user=frank.liu event=login_success src_ip=192.168.1.3 hostname=UNKNOWN-9F3 anomalous=False
+timestamp=2026-03-21T13:48:10.155858+00:00 actor=grace.kim action=siem_alert src_ip=10.0.0.18 hostname=CORP-LT01 facility=siem anomalous=False rows_accessed=0
+<14>Mar 21 13:21:26 CORP-PC07 oracle: user=frank.liu event=db_access src_ip=10.0.0.1 hostname=CORP-PC07 anomalous=False
+{"message_id": "18f2ea2a-82fd-4282-845b-00f8f5f9a787", "event_time_utc": "2026-03-21T15:04:49.559016+00:00", "source_system": "email", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "email_alert"}}
+<14>Mar 21 18:13:23 DB-SRV01 sshd: user=dave.smith event=login_success src_ip=192.168.1.9 hostname=DB-SRV01 anomalous=False
+timestamp=2026-03-21T17:22:27.538711+00:00 actor=eve.jones action=email_alert src_ip=10.0.0.10 hostname=WIN-WKST04 facility=Proofpoint anomalous=False rows_accessed=0
+eve.jones,process_create,10.0.0.9,DB-SRV01,2026-03-21T19:20:52.483717+00:00,edr,false,0
+{"message_id": "5748a044-1ae9-45fa-b4f6-915364d8c841", "event_time_utc": "2026-03-21T12:44:37.533487+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "login_failure", "src_ip": "10.0.0.1", "hostname": "CORP-LT02", "anomaly": false}}
+{"message_id": "5b053545-13d4-4e3e-b9cc-a22218b58c7a", "event_time_utc": "2026-03-21T10:55:41.228122+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "db_access", "src_ip": "192.168.1.4", "hostname": "CORP-LT01", "anomaly": false}}
+<14>Mar 21 08:45:34 CORP-PC07 pf: user=eve.jones event=network_transfer src_ip=10.0.0.16 hostname=CORP-PC07 anomalous=False
+{"message_id": "b20d8a16-659d-4abf-83f7-6f920d52b929", "event_time_utc": "2026-03-21T14:20:27.573973+00:00", "source_system": "db", "payload_version": "v1", "payload": {"user": "frank.liu", "event": "db_access", "ip": "192.168.1.5", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "6a062f89-0f2b-4538-8e66-3cc6b7c6068a", "event_time_utc": "2026-03-21T16:19:52.418916+00:00", "source_system": "email", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "email_alert", "src_ip": "192.168.1.11", "hostname": "CORP-PC07", "anomaly": false}}
+{"message_id": "62ea764e-0c4e-4603-a81d-c1bc7cfd9f3e", "event_time_utc": "2026-03-21T14:44:32.233773+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "dave.smith", "event": "login_success"}}
+carol.patel,db_access,10.0.0.6,WIN-WKST04,2026-03-21T09:33:03.711863+00:00,db,false,2374
+<14>Mar 21 13:11:00 JUMP-BOX01 pf: user=frank.liu event=network_transfer src_ip=10.0.0.14 hostname=JUMP-BOX01 anomalous=False
+<14>Mar 21 09:20:18 UNKNOWN-9F3 sshd: user=grace.kim event=login_failure src_ip=10.0.0.9 hostname=UNKNOWN-9F3 anomalous=False
+{"message_id": "a8ab1f55-48d2-47ad-b801-a511d47ebe02", "event_time_utc": "2026-03-21T14:25:53.828087+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "login_success", "src_ip": "10.0.0.16", "hostname": "DB-SRV01", "anomaly": false}}
+{"message_id": "0abf6280-7178-4c12-8cb8-5218c079995b", "event_time_utc": "2026-03-21T19:18:39.242298+00:00", "source_system": "email", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "email_alert"}}
+henry.tan,process_create,10.0.0.17,DB-SRV01,2026-03-21T12:49:48.768981+00:00,edr,false,0
+{"message_id": "e5391ac0-ecd8-4f8a-9d58-707dad531a89", "event_time_utc": "2026-03-21T18:14:59.554672+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "network_transfer", "src_ip": "192.168.1.1", "hostname": "CORP-LT01", "anomaly": false}}
+{"message_id": "a70404ec-dc6d-47f1-a73f-306fb2e38bd2", "event_time_utc": "2026-03-21T18:36:06.202794+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "siem_alert", "ip": "192.168.1.4", "device": "CORP-PC07", "is_anomalous": false}}
+timestamp=2026-03-21T14:55:34.439232+00:00 actor=eve.jones action=login_success src_ip=192.168.1.14 hostname=CORP-LT01 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "cbd526c6-04c7-4950-873c-031cfd021f44", "event_time_utc": "2026-03-21T12:28:30.755421+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "login_failure", "src_ip": "10.0.0.8", "hostname": "JUMP-BOX01", "anomaly": false}}
+{"message_id": "358061ac-015a-4848-899e-9851d2bc9395", "event_time_utc": "2026-03-21T08:10:29.676600+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "siem_alert"}}
+grace.kim,siem_alert,10.0.0.13,UNKNOWN-9F3,2026-03-21T13:12:20.423994+00:00,siem,false,0
+{"message_id": "6e66a3d4-814a-4473-94da-0f5adbb0cad3", "event_time_utc": "2026-03-21T13:58:06.058232+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "process_create", "src_ip": "10.0.0.6", "hostname": "CORE-SRV02", "anomaly": false}}
+{"message_id": "4d4f008d-bf0b-4ae3-b64f-30a0d11f7b0b", "event_time_utc": "2026-03-21T13:57:00.580716+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "network_transfer"}}
+timestamp=2026-03-21T15:40:59.775958+00:00 actor=eve.jones action=email_alert src_ip=10.0.0.19 hostname=DB-SRV01 facility=Proofpoint anomalous=False rows_accessed=0
+<14>Mar 21 13:00:36 CORP-PC07 sshd: user=grace.kim event=login_failure src_ip=10.0.0.4 hostname=CORP-PC07 anomalous=False
+<14>Mar 21 12:03:40 CORP-PC07 postfix: user=frank.liu event=email_alert src_ip=192.168.1.12 hostname=CORP-PC07 anomalous=False
+{"message_id": "4eda4237-9052-4ace-afaa-e7d3ed384c0d", "event_time_utc": "2026-03-21T16:21:57.222511+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "siem_alert", "src_ip": "10.0.0.12", "hostname": "DB-SRV01", "anomaly": false}}
+<14>Mar 21 17:43:06 WIN-WKST04 sshd: user=henry.tan event=login_success src_ip=192.168.1.9 hostname=WIN-WKST04 anomalous=False
+<14>Mar 21 09:44:30 JUMP-BOX01 oracle: user=dave.smith event=db_access src_ip=192.168.1.10 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T13:31:13.516777+00:00 actor=alice.morgan action=siem_alert src_ip=10.0.0.4 hostname=UNKNOWN-9F3 facility=siem anomalous=False rows_accessed=0
+carol.patel,db_access,10.0.0.18,WIN-WKST04,2026-03-21T13:57:32.146497+00:00,db,false,1855
+dave.smith,network_transfer,10.0.0.19,CORP-LT02,2026-03-21T18:30:08.281160+00:00,network,false,0
+<14>Mar 21 15:38:40 CORP-LT01 sshd: user=frank.liu event=login_success src_ip=192.168.1.2 hostname=CORP-LT01 anomalous=False
+{"message_id": "2d43ec53-fdcd-48c2-a2b5-db684548dcfa", "event_time_utc": "2026-03-21T09:56:22.752098+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "login_success"}}
+{"message_id": "ad0e39de-381f-4bfc-b532-24ad614f3f1a", "event_time_utc": "2026-03-21T10:54:42.896980+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_failure", "src_ip": "10.0.0.19", "hostname": "CORP-PC07", "anomaly": false}}
+carol.patel,process_create,10.0.0.2,UNKNOWN-9F3,2026-03-21T08:50:17.664894+00:00,edr,false,0
+{"message_id": "6d6ceb48-3815-43ec-bff8-eb10b0865e91", "event_time_utc": "2026-03-21T15:05:44.922163+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"actor": "carol.patel", "event": "siem_alert"}}
+bob.chen,siem_alert,10.0.0.10,WIN-WKST04,2026-03-21T20:08:30.200813+00:00,siem,false,0
+timestamp=2026-03-21T07:52:50.605199+00:00 actor=dave.smith action=login_success src_ip=10.0.0.7 hostname=JUMP-BOX01 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "1718681a-968a-4a8b-a051-136d6e5a748a", "event_time_utc": "2026-03-21T08:24:48.783816+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "email_alert", "src_ip": "192.168.1.4", "hostname": "CORE-SRV02", "anomaly": false}}
+{"message_id": "1b16b203-e5a2-4e06-b0ad-cf2f8786246e", "event_time_utc": "2026-03-21T08:34:23.523247+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "db_access", "src_ip": "192.168.1.6", "hostname": "DB-SRV01", "anomaly": false}}
+<14>Mar 21 13:06:30 CORP-PC07 postfix: user=alice.morgan event=email_alert src_ip=192.168.1.5 hostname=CORP-PC07 anomalous=False
+<14>Mar 21 17:34:01 DB-SRV01 sshd: user=henry.tan event=login_success src_ip=192.168.1.2 hostname=DB-SRV01 anomalous=False
+<14>Mar 21 09:31:26 DB-SRV01 sshd: user=frank.liu event=login_failure src_ip=192.168.1.2 hostname=DB-SRV01 anomalous=False
+{"message_id": "41589a14-06b6-4466-8b83-b7d1e9e3430b", "event_time_utc": "2026-03-21T14:16:54.044770+00:00", "source_system": "netflow", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "network_transfer", "ip": "192.168.1.1", "device": "JUMP-BOX01", "is_anomalous": false}}
+<14>Mar 21 12:48:10 DB-SRV01 splunk: user=dave.smith event=siem_alert src_ip=10.0.0.1 hostname=DB-SRV01 anomalous=False
+henry.tan,login_failure,10.0.0.9,DB-SRV01,2026-03-21T16:13:58.808080+00:00,auth,false,0
+henry.tan,process_create,192.168.1.13,CORP-LT02,2026-03-21T17:19:53.408896+00:00,edr,false,0
+<14>Mar 21 12:19:16 CORP-LT01 oracle: user=carol.patel event=db_access src_ip=192.168.1.3 hostname=CORP-LT01 anomalous=False
+<14>Mar 21 11:22:50 CORP-LT02 splunk: user=eve.jones event=siem_alert src_ip=10.0.0.18 hostname=CORP-LT02 anomalous=False
+<14>Mar 21 10:05:30 UNKNOWN-9F3 oracle: user=dave.smith event=db_access src_ip=192.168.1.2 hostname=UNKNOWN-9F3 anomalous=False
+timestamp=2026-03-21T15:28:59.975426+00:00 actor=frank.liu action=login_success src_ip=10.0.0.5 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "52ef0299-5fdd-4439-9ed5-20eb48d4a430", "event_time_utc": "2026-03-21T12:50:20.920261+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "process_create", "ip": "10.0.0.15", "device": "CORP-PC07", "is_anomalous": false}}
+<14>Mar 21 15:26:29 WIN-WKST04 postfix: user=bob.chen event=email_alert src_ip=10.0.0.12 hostname=WIN-WKST04 anomalous=False
+{"message_id": "efcb6ffd-339c-4bde-ab5d-95b9edd7af32", "event_time_utc": "2026-03-21T17:03:35.840892+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "db_access", "src_ip": "10.0.0.19", "hostname": "JUMP-BOX01", "anomaly": false}}
+grace.kim,db_access,10.0.0.8,CORE-SRV02,2026-03-21T09:11:29.721011+00:00,db,false,3877
+{"message_id": "5ccd7f51-0732-4efa-8d08-a2d4376b8cb1", "event_time_utc": "2026-03-21T12:42:04.360260+00:00", "source_system": "db", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "db_access"}}
+bob.chen,db_access,10.0.0.7,UNKNOWN-9F3,2026-03-21T14:30:35.488336+00:00,db,false,4891
+{"message_id": "d98064a1-bcd8-496a-9b93-6b4188805a76", "event_time_utc": "2026-03-21T07:56:35.431170+00:00", "source_system": "db", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "db_access"}}
+<14>Mar 21 10:43:35 CORE-SRV02 oracle: user=alice.morgan event=db_access src_ip=192.168.1.10 hostname=CORE-SRV02 anomalous=False
+<14>Mar 21 20:33:14 CORP-LT01 sshd: user=frank.liu event=login_success src_ip=192.168.1.8 hostname=CORP-LT01 anomalous=False
+henry.tan,network_transfer,192.168.1.13,JUMP-BOX01,2026-03-21T13:04:00.897981+00:00,network,false,0
+{"message_id": "385aecc9-5fdf-4be9-aabf-4e6d82768458", "event_time_utc": "2026-03-21T09:30:12.404303+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "login_failure", "ip": "192.168.1.14", "device": "CORE-SRV02", "is_anomalous": false}}
+{"message_id": "1c1e7962-fc85-46f4-bee3-e56979437929", "event_time_utc": "2026-03-21T09:49:34.498135+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_failure"}}
+frank.liu,login_success,192.168.1.8,CORP-PC07,2026-03-21T20:10:46.351939+00:00,auth,false,0
+timestamp=2026-03-21T20:31:40.616500+00:00 actor=dave.smith action=login_success src_ip=10.0.0.11 hostname=DB-SRV01 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T19:38:45.406092+00:00 actor=dave.smith action=network_transfer src_ip=10.0.0.11 hostname=CORE-SRV02 facility=PaloAlto anomalous=False rows_accessed=0
+timestamp=2026-03-21T10:45:29.788938+00:00 actor=frank.liu action=db_access src_ip=192.168.1.4 hostname=UNKNOWN-9F3 facility=DataSunrise anomalous=False rows_accessed=879
+{"message_id": "d71d0b01-a1c6-49f5-99b7-45277eaec29b", "event_time_utc": "2026-03-21T20:06:46.910124+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "siem_alert", "src_ip": "10.0.0.1", "hostname": "DB-SRV01", "anomaly": false}}
+<14>Mar 21 18:56:33 WIN-WKST04 pf: user=bob.chen event=network_transfer src_ip=192.168.1.9 hostname=WIN-WKST04 anomalous=False
+<14>Mar 21 13:32:35 WIN-WKST04 sshd: user=carol.patel event=login_success src_ip=192.168.1.2 hostname=WIN-WKST04 anomalous=False
+timestamp=2026-03-21T15:13:09.177295+00:00 actor=bob.chen action=login_success src_ip=192.168.1.13 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T17:34:20.328865+00:00 actor=grace.kim action=db_access src_ip=192.168.1.1 hostname=UNKNOWN-9F3 facility=DataSunrise anomalous=False rows_accessed=153
+timestamp=2026-03-21T14:46:32.207050+00:00 actor=grace.kim action=login_success src_ip=10.0.0.16 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+dave.smith,siem_alert,192.168.1.10,CORP-LT01,2026-03-21T14:41:21.082090+00:00,siem,false,0
+timestamp=2026-03-21T11:14:26.265756+00:00 actor=carol.patel action=email_alert src_ip=10.0.0.6 hostname=DB-SRV01 facility=Proofpoint anomalous=False rows_accessed=0
+{"message_id": "ef5e4c5d-06e3-425a-bb5b-e5ad7f546b62", "event_time_utc": "2026-03-21T13:52:29.900326+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "login_success", "src_ip": "10.0.0.6", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+<14>Mar 21 10:07:29 UNKNOWN-9F3 splunk: user=frank.liu event=siem_alert src_ip=10.0.0.14 hostname=UNKNOWN-9F3 anomalous=False
+{"message_id": "c32fb7a9-d171-47d1-a2d0-f26221c7812d", "event_time_utc": "2026-03-21T10:28:29.480691+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "db_access", "src_ip": "192.168.1.3", "hostname": "JUMP-BOX01", "anomaly": false}}
+{"message_id": "7f70e5c7-4dfe-4586-9fe6-0e1805fbe8d3", "event_time_utc": "2026-03-21T10:53:17.540295+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "network_transfer", "src_ip": "10.0.0.18", "hostname": "CORP-LT02", "anomaly": false}}
+timestamp=2026-03-21T08:52:07.276482+00:00 actor=henry.tan action=network_transfer src_ip=192.168.1.10 hostname=CORE-SRV02 facility=PaloAlto anomalous=False rows_accessed=0
+{"message_id": "f04c438e-9dc7-4636-aeaa-1ade161c18aa", "event_time_utc": "2026-03-21T07:34:04.884313+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_failure"}}
+{"message_id": "0083522a-7a40-4cfa-af63-b90a77d8b9fc", "event_time_utc": "2026-03-21T18:09:59.854201+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "siem_alert", "ip": "192.168.1.3", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "8d774201-21ab-4fac-a256-caeb2533d0a8", "event_time_utc": "2026-03-21T17:43:01.377469+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "db_access", "src_ip": "10.0.0.14", "hostname": "DB-SRV01", "anomaly": false}}
+<14>Mar 21 15:40:31 CORP-LT01 sshd: user=carol.patel event=login_success src_ip=192.168.1.1 hostname=CORP-LT01 anomalous=False
+{"message_id": "2177cec6-0449-400f-bf3d-39b82ddf4b34", "event_time_utc": "2026-03-21T17:44:11.681997+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "process_create", "ip": "10.0.0.14", "device": "DB-SRV01", "is_anomalous": false}}
+{"message_id": "45360504-6975-4deb-b74b-b7cb45803d52", "event_time_utc": "2026-03-21T19:53:10.356758+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "email_alert", "src_ip": "10.0.0.18", "hostname": "JUMP-BOX01", "anomaly": false}}
+{"message_id": "57aeb151-2fcc-4878-8964-cae23e415d09", "event_time_utc": "2026-03-21T12:49:32.889531+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "siem_alert"}}
+{"message_id": "3fd500cd-ed44-4e37-a0c8-41851184b0a8", "event_time_utc": "2026-03-21T18:39:44.473761+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "process_create"}}
+timestamp=2026-03-21T14:49:39.133156+00:00 actor=carol.patel action=login_failure src_ip=10.0.0.7 hostname=CORP-LT01 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "b8a6e47f-b488-42a2-8c59-578fca2b63b1", "event_time_utc": "2026-03-21T18:11:14.301503+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"actor": "carol.patel", "event": "login_failure"}}
+timestamp=2026-03-21T20:04:20.692410+00:00 actor=alice.morgan action=network_transfer src_ip=10.0.0.16 hostname=CORE-SRV02 facility=PaloAlto anomalous=False rows_accessed=0
+<14>Mar 21 10:00:55 CORE-SRV02 pf: user=grace.kim event=network_transfer src_ip=10.0.0.3 hostname=CORE-SRV02 anomalous=False
+<14>Mar 21 13:52:51 WIN-WKST04 splunk: user=carol.patel event=siem_alert src_ip=10.0.0.18 hostname=WIN-WKST04 anomalous=False
+{"message_id": "c93fe804-edb7-469a-af47-446502b94216", "event_time_utc": "2026-03-21T20:50:20.084795+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "login_failure"}}
+{"message_id": "77c9d9f5-fff1-4ba4-9e01-1f9b9cb068a7", "event_time_utc": "2026-03-21T11:10:46.913552+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "db_access"}}
+timestamp=2026-03-21T08:39:52.450076+00:00 actor=carol.patel action=siem_alert src_ip=10.0.0.19 hostname=CORP-LT02 facility=siem anomalous=False rows_accessed=0
+{"message_id": "bf0833d3-7e5c-413e-b05a-e5856577c3e9", "event_time_utc": "2026-03-21T12:43:57.267507+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "siem_alert", "ip": "192.168.1.8", "device": "UNKNOWN-9F3", "is_anomalous": false}}
+timestamp=2026-03-21T08:12:56.400066+00:00 actor=frank.liu action=siem_alert src_ip=192.168.1.13 hostname=CORP-LT01 facility=siem anomalous=False rows_accessed=0
+{"message_id": "79019556-cf7f-4f89-94f9-57fc0c1d23d7", "event_time_utc": "2026-03-21T19:54:27.948566+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "email_alert"}}
+{"message_id": "ccfbace4-1bf7-421f-9b57-2cc8218a87bd", "event_time_utc": "2026-03-21T09:00:09.776256+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "network_transfer", "src_ip": "10.0.0.5", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+<14>Mar 21 18:36:37 WIN-WKST04 crowdstrike: user=grace.kim event=process_create src_ip=10.0.0.7 hostname=WIN-WKST04 anomalous=False
+{"message_id": "4499bb06-a677-44f0-a9b0-838c75719fda", "event_time_utc": "2026-03-21T08:15:43.844975+00:00", "source_system": "database", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "db_access"}}
+{"message_id": "13cbbf62-437e-4172-98ce-dc91dd5f17be", "event_time_utc": "2026-03-21T14:28:19.506437+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "process_create", "src_ip": "10.0.0.13", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+timestamp=2026-03-21T14:29:33.675544+00:00 actor=frank.liu action=login_failure src_ip=192.168.1.4 hostname=CORP-LT02 facility=ActiveDirectory anomalous=False rows_accessed=0
+<14>Mar 21 08:14:39 DB-SRV01 pf: user=frank.liu event=network_transfer src_ip=10.0.0.10 hostname=DB-SRV01 anomalous=False
+mallory.breach,login_failure,192.168.1.2,JUMP-BOX01,2026-03-21T02:54:18.886911+00:00,auth,true,0
+{"message_id": "d61533b7-7101-4762-9aca-7edf76f0e06a", "event_time_utc": "2026-03-21T13:08:27.795861+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "login_success", "ip": "192.168.1.8", "device": "CORE-SRV02", "is_anomalous": false}}
+timestamp=2026-03-21T13:32:10.262040+00:00 actor=alice.morgan action=login_success src_ip=10.0.0.8 hostname=WIN-WKST04 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T15:29:37.961390+00:00 actor=alice.morgan action=db_access src_ip=192.168.1.4 hostname=WIN-WKST04 facility=DataSunrise anomalous=False rows_accessed=1986
+{"message_id": "c529b9f5-8fa9-40fa-afa1-2d4f5b031e32", "event_time_utc": "2026-03-21T18:41:49.137511+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "email_alert"}}
+dave.smith,process_create,192.168.1.10,CORP-PC07,2026-03-21T19:16:17.856808+00:00,edr,false,0
+carol.patel,db_access,192.168.1.6,CORP-PC07,2026-03-21T18:57:45.841817+00:00,db,false,1201
+{"message_id": "0cec4dce-cc4c-41cf-831e-9e1d75e5f899", "event_time_utc": "2026-03-21T09:02:50.479013+00:00", "source_system": "database", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "db_access"}}
+<14>Mar 21 18:03:18 CORP-LT02 sshd: user=dave.smith event=login_success src_ip=10.0.0.11 hostname=CORP-LT02 anomalous=False
+timestamp=2026-03-21T20:38:46.088488+00:00 actor=eve.jones action=email_alert src_ip=10.0.0.15 hostname=JUMP-BOX01 facility=Proofpoint anomalous=False rows_accessed=0
+<14>Mar 21 20:12:23 UNKNOWN-9F3 sshd: user=eve.jones event=login_success src_ip=192.168.1.14 hostname=UNKNOWN-9F3 anomalous=False
+bob.chen,email_alert,10.0.0.13,JUMP-BOX01,2026-03-21T16:39:31.173483+00:00,email,false,0
+<14>Mar 21 12:11:20 JUMP-BOX01 sshd: user=grace.kim event=login_success src_ip=192.168.1.10 hostname=JUMP-BOX01 anomalous=False
+dave.smith,db_access,10.0.0.10,CORP-PC07,2026-03-21T15:20:37.872550+00:00,db,false,4047
+oscar.threat,network_transfer,192.168.1.4,CORP-PC07,2026-03-21T05:09:16.272455+00:00,network,true,0
+timestamp=2026-03-21T10:06:41.153063+00:00 actor=grace.kim action=email_alert src_ip=10.0.0.15 hostname=CORE-SRV02 facility=Proofpoint anomalous=False rows_accessed=0
+<14>Mar 21 12:34:26 CORP-LT02 sshd: user=grace.kim event=login_success src_ip=192.168.1.6 hostname=CORP-LT02 anomalous=False
+grace.kim,login_failure,10.0.0.15,CORP-LT01,2026-03-21T18:34:28.449253+00:00,auth,false,0
+timestamp=2026-03-21T18:03:15.681243+00:00 actor=grace.kim action=network_transfer src_ip=10.0.0.18 hostname=CORP-LT01 facility=PaloAlto anomalous=False rows_accessed=0
+eve.jones,login_success,10.0.0.10,CORP-LT01,2026-03-21T18:25:48.393844+00:00,auth,false,0
+timestamp=2026-03-21T15:17:39.905216+00:00 actor=henry.tan action=login_failure src_ip=192.168.1.8 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T09:02:43.393148+00:00 actor=grace.kim action=network_transfer src_ip=10.0.0.17 hostname=CORP-LT02 facility=PaloAlto anomalous=False rows_accessed=0
+{"message_id": "a6d1edc5-07a4-43de-a917-2168d0999119", "event_time_utc": "2026-03-21T12:19:55.606687+00:00", "source_system": "email", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "email_alert", "src_ip": "192.168.1.12", "hostname": "DB-SRV01", "anomaly": false}}
+timestamp=2026-03-21T14:07:10.829495+00:00 actor=bob.chen action=process_create src_ip=192.168.1.2 hostname=UNKNOWN-9F3 facility=CrowdStrike anomalous=False rows_accessed=0
+{"message_id": "62151226-3934-41b3-aef6-63df5f3338bf", "event_time_utc": "2026-03-21T19:11:10.682941+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "process_create", "ip": "192.168.1.6", "device": "CORE-SRV02", "is_anomalous": false}}
+henry.tan,email_alert,10.0.0.9,DB-SRV01,2026-03-21T17:04:20.435651+00:00,email,false,0
+{"message_id": "73b681f7-d5c2-48cd-b7c3-e8821ea579c2", "event_time_utc": "2026-03-21T16:25:08.539018+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "db_access"}}
+timestamp=2026-03-21T09:32:24.982798+00:00 actor=frank.liu action=login_success src_ip=10.0.0.4 hostname=CORP-LT02 facility=ActiveDirectory anomalous=False rows_accessed=0
+frank.liu,network_transfer,192.168.1.2,UNKNOWN-9F3,2026-03-21T14:36:11.170553+00:00,network,false,0
+<14>Mar 21 08:42:17 CORP-LT02 crowdstrike: user=carol.patel event=process_create src_ip=192.168.1.12 hostname=CORP-LT02 anomalous=False
+henry.tan,network_transfer,10.0.0.16,CORP-PC07,2026-03-21T13:48:25.991555+00:00,network,false,0
+{"message_id": "3233c044-51e4-4891-8dc7-726fc7f2fd13", "event_time_utc": "2026-03-21T16:55:33.798811+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"user": "carol.patel", "event": "login_success", "ip": "10.0.0.10", "device": "CORP-PC07", "is_anomalous": false}}
+{"message_id": "2f79049a-4e00-47dc-bc25-e06df0508f81", "event_time_utc": "2026-03-21T11:08:52.383892+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"user": "frank.liu", "event": "siem_alert", "ip": "192.168.1.2", "device": "CORE-SRV02", "is_anomalous": false}}
+{"message_id": "9968cf2e-eb16-4959-9098-053b85ae9c62", "event_time_utc": "2026-03-21T08:37:02.340958+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"username": "bob.chen", "action": "siem_alert", "src_ip": "192.168.1.10", "hostname": "WIN-WKST04", "anomaly": false}}
+timestamp=2026-03-21T15:32:06.001290+00:00 actor=bob.chen action=db_access src_ip=10.0.0.18 hostname=CORE-SRV02 facility=DataSunrise anomalous=False rows_accessed=1419
+eve.jones,login_success,10.0.0.14,JUMP-BOX01,2026-03-21T14:31:46.731247+00:00,auth,false,0
+eve.jones,siem_alert,192.168.1.5,CORP-LT01,2026-03-21T08:25:07.415695+00:00,siem,false,0
+{"message_id": "3caaed12-eaa3-4d0a-8a16-4bfe461203e3", "event_time_utc": "2026-03-21T18:40:54.438504+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "network_transfer", "src_ip": "10.0.0.6", "hostname": "CORE-SRV02", "anomaly": false}}
+{"message_id": "e72cc25c-d31c-43ff-bed0-f35711ac652c", "event_time_utc": "2026-03-21T11:39:10.626185+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "process_create", "ip": "10.0.0.18", "device": "CORE-SRV02", "is_anomalous": false}}
+timestamp=2026-03-21T19:26:39.689977+00:00 actor=carol.patel action=email_alert src_ip=10.0.0.4 hostname=CORP-LT01 facility=Proofpoint anomalous=False rows_accessed=0
+{"message_id": "358e2ba2-6634-4c73-954e-48b3db08f870", "event_time_utc": "2026-03-21T11:48:11.527816+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "siem_alert", "src_ip": "10.0.0.12", "hostname": "CORP-LT02", "anomaly": false}}
+{"message_id": "7c0752ac-c72f-44eb-b1a4-25175fc54482", "event_time_utc": "2026-03-21T18:58:23.080690+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "process_create"}}
+bob.chen,login_failure,192.168.1.7,CORE-SRV02,2026-03-21T08:56:19.708745+00:00,auth,false,0
+<14>Mar 21 10:05:30 UNKNOWN-9F3 oracle: user=dave.smith event=db_access src_ip=192.168.1.2 hostname=UNKNOWN-9F3 anomalous=False
+timestamp=2026-03-21T09:18:35.835487+00:00 actor=alice.morgan action=email_alert src_ip=192.168.1.13 hostname=CORP-LT01 facility=Proofpoint anomalous=False rows_accessed=0
+{"message_id": "360ebd24-8899-4576-91bb-968d1915f7b9", "event_time_utc": "2026-03-21T09:59:39.332643+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"user": "carol.patel", "event": "siem_alert", "ip": "10.0.0.17", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "b5685789-c3e7-434a-a778-c448dc9c50c0", "event_time_utc": "2026-03-21T16:35:20.331458+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_success"}}
+<14>Mar 21 15:14:18 CORP-LT01 postfix: user=grace.kim event=email_alert src_ip=192.168.1.9 hostname=CORP-LT01 anomalous=False
+timestamp=2026-03-21T08:54:40.543441+00:00 actor=bob.chen action=siem_alert src_ip=10.0.0.11 hostname=WIN-WKST04 facility=siem anomalous=False rows_accessed=0
+{"message_id": "7bb7136f-9aeb-4a13-8bb1-51a59f7f76c5", "event_time_utc": "2026-03-21T15:36:22.069033+00:00", "source_system": "network", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "network_transfer", "ip": "10.0.0.17", "device": "CORP-PC07", "is_anomalous": false}}
+{"message_id": "a6c45077-f23f-43b5-b92c-864e5bd24da8", "event_time_utc": "2026-03-21T20:08:12.708001+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "process_create", "src_ip": "192.168.1.3", "hostname": "CORP-LT02", "anomaly": false}}
+<14>Mar 21 19:50:56 CORE-SRV02 pf: user=dave.smith event=network_transfer src_ip=192.168.1.3 hostname=CORE-SRV02 anomalous=False
+grace.kim,network_transfer,10.0.0.9,CORP-PC07,2026-03-21T13:45:06.556904+00:00,network,false,0
+{"message_id": "94066791-7077-402b-9b04-8cf7e18f64f2", "event_time_utc": "2026-03-21T14:03:06.684339+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "dave.smith", "event": "login_failure"}}
+{"message_id": "e79d56cd-eb09-4af0-af7f-9082b7ee0410", "event_time_utc": "2026-03-21T08:59:36.375933+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "login_failure", "src_ip": "10.0.0.7", "hostname": "CORP-PC07", "anomaly": false}}
+<14>Mar 21 10:30:07 CORP-PC07 pf: user=alice.morgan event=network_transfer src_ip=10.0.0.17 hostname=CORP-PC07 anomalous=False
+{"message_id": "ec92dc27-7127-4336-931c-f88a19c93236", "event_time_utc": "2026-03-21T18:06:28.172461+00:00", "source_system": "email", "payload_version": "v1", "payload": {"actor": "frank.liu", "event": "email_alert"}}
+{"message_id": "2d0f74af-b0ff-4383-aec0-db3c2e09b3e8", "event_time_utc": "2026-03-21T14:09:15.720683+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "siem_alert", "src_ip": "192.168.1.14", "hostname": "JUMP-BOX01", "anomaly": false}}
+timestamp=2026-03-21T13:34:17.083618+00:00 actor=carol.patel action=email_alert src_ip=192.168.1.2 hostname=CORP-LT02 facility=Proofpoint anomalous=False rows_accessed=0
+bob.chen,network_transfer,192.168.1.14,CORP-PC07,2026-03-21T20:57:32.382986+00:00,network,false,0
+<14>Mar 21 11:16:08 JUMP-BOX01 pf: user=alice.morgan event=network_transfer src_ip=10.0.0.3 hostname=JUMP-BOX01 anomalous=False
+{"message_id": "fb77b792-8a88-4f99-90b3-13ade840197f", "event_time_utc": "2026-03-21T19:19:34.621307+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"user": "carol.patel", "event": "login_success", "ip": "10.0.0.4", "device": "CORP-LT01", "is_anomalous": false}}
+{"message_id": "74d43130-ce19-4251-99fb-b7649b82b8f3", "event_time_utc": "2026-03-21T09:49:58.452952+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "email_alert", "src_ip": "10.0.0.4", "hostname": "DB-SRV01", "anomaly": false}}
+{"message_id": "6e2991f5-3640-43e4-a8f2-d24ec0507e32", "event_time_utc": "2026-03-21T08:08:22.930988+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "login_success", "ip": "10.0.0.4", "device": "CORP-LT02", "is_anomalous": false}}
+{"message_id": "070d20d5-e2cf-4099-bd69-458de5ad9501", "event_time_utc": "2026-03-21T12:33:20.719635+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_success"}}
+alice.morgan,email_alert,10.0.0.6,JUMP-BOX01,2026-03-21T11:29:12.349741+00:00,email,false,0
+{"message_id": "9a56eeaf-a8f9-47dc-abfd-07fdcb17daf1", "event_time_utc": "2026-03-21T08:48:09.284456+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "login_success", "src_ip": "10.0.0.6", "hostname": "DB-SRV01", "anomaly": false}}
+<14>Mar 21 18:49:10 CORP-LT01 postfix: user=carol.patel event=email_alert src_ip=10.0.0.13 hostname=CORP-LT01 anomalous=False
+<14>Mar 21 13:22:47 CORE-SRV02 oracle: user=bob.chen event=db_access src_ip=10.0.0.9 hostname=CORE-SRV02 anomalous=False
+<14>Mar 21 13:38:31 CORE-SRV02 postfix: user=henry.tan event=email_alert src_ip=192.168.1.11 hostname=CORE-SRV02 anomalous=False
+henry.tan,login_success,10.0.0.12,CORE-SRV02,2026-03-21T14:32:22.959684+00:00,auth,false,0
+alice.morgan,process_create,10.0.0.8,JUMP-BOX01,2026-03-21T14:06:21.960822+00:00,edr,false,0
+timestamp=2026-03-21T07:43:59.762068+00:00 actor=bob.chen action=process_create src_ip=10.0.0.13 hostname=DB-SRV01 facility=CrowdStrike anomalous=False rows_accessed=0
+{"message_id": "1eabf791-8c6d-4d66-95e8-5f93404fac84", "event_time_utc": "2026-03-21T10:16:27.221979+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"user": "henry.tan", "event": "siem_alert", "ip": "10.0.0.1", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "bbbc98fb-97cb-4acd-8dc1-02ef96a7808d", "event_time_utc": "2026-03-21T14:27:20.615670+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "siem_alert", "ip": "192.168.1.8", "device": "CORE-SRV02", "is_anomalous": false}}
+timestamp=2026-03-21T16:15:19.712199+00:00 actor=alice.morgan action=db_access src_ip=10.0.0.16 hostname=UNKNOWN-9F3 facility=DataSunrise anomalous=False rows_accessed=427
+henry.tan,network_transfer,10.0.0.16,CORP-LT02,2026-03-21T12:05:18.580416+00:00,network,false,0
+{"message_id": "5c9e6f33-039e-4c1e-a6f8-0780d0f9783e", "event_time_utc": "2026-03-21T09:26:02.072353+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "db_access", "src_ip": "192.168.1.3", "hostname": "CORP-LT01", "anomaly": false}}
+{"message_id": "72465afd-c85f-4508-a284-48a78df892b7", "event_time_utc": "2026-03-21T09:19:08.547676+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "db_access", "src_ip": "10.0.0.16", "hostname": "DB-SRV01", "anomaly": false}}
+<14>Mar 21 17:17:25 JUMP-BOX01 crowdstrike: user=bob.chen event=process_create src_ip=192.168.1.14 hostname=JUMP-BOX01 anomalous=False
+<14>Mar 21 10:57:52 WIN-WKST04 oracle: user=grace.kim event=db_access src_ip=10.0.0.16 hostname=WIN-WKST04 anomalous=False
+grace.kim,login_success,10.0.0.17,JUMP-BOX01,2026-03-21T18:56:36.073226+00:00,auth,false,0
+dave.smith,network_transfer,192.168.1.2,DB-SRV01,2026-03-21T15:28:44.893181+00:00,network,false,0
+timestamp=2026-03-21T09:20:45.993543+00:00 actor=bob.chen action=siem_alert src_ip=10.0.0.3 hostname=WIN-WKST04 facility=siem anomalous=False rows_accessed=0
+henry.tan,db_access,192.168.1.6,JUMP-BOX01,2026-03-21T20:59:53.291952+00:00,db,false,4062
+{"message_id": "307cab2a-563e-4e7f-aa61-982ea5abc212", "event_time_utc": "2026-03-21T19:08:44.255727+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_success", "src_ip": "10.0.0.6", "hostname": "CORP-LT01", "anomaly": false}}
+<14>Mar 21 11:31:47 CORP-PC07 splunk: user=bob.chen event=siem_alert src_ip=192.168.1.5 hostname=CORP-PC07 anomalous=False
+timestamp=2026-03-21T08:47:15.645688+00:00 actor=frank.liu action=login_success src_ip=10.0.0.16 hostname=CORP-LT02 facility=ActiveDirectory anomalous=False rows_accessed=0
+<14>Mar 21 08:11:27 CORP-LT02 sshd: user=bob.chen event=login_success src_ip=10.0.0.17 hostname=CORP-LT02 anomalous=False
+{"message_id": "311a3946-3f72-480e-8938-b3356ec2c37b", "event_time_utc": "2026-03-21T11:32:33.879846+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"actor": "carol.patel", "event": "network_transfer"}}
+eve.jones,network_transfer,10.0.0.6,UNKNOWN-9F3,2026-03-21T08:51:47.484625+00:00,network,false,0
+{"message_id": "f58c7123-a6f7-4e5c-812f-b5fb010a72f7", "event_time_utc": "2026-03-21T17:47:07.567964+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"user": "henry.tan", "event": "db_access", "ip": "10.0.0.8", "device": "CORP-PC07", "is_anomalous": false}}
+timestamp=2026-03-21T04:42:17.699676+00:00 actor=peggy.insider action=privilege_escalation src_ip=10.0.0.10 hostname=CORE-SRV02 facility=CrowdStrike anomalous=True rows_accessed=0
+<14>Mar 21 10:24:43 CORP-LT01 sshd: user=dave.smith event=login_failure src_ip=192.168.1.12 hostname=CORP-LT01 anomalous=False
+timestamp=2026-03-21T11:37:40.364842+00:00 actor=bob.chen action=siem_alert src_ip=10.0.0.18 hostname=CORP-LT02 facility=siem anomalous=False rows_accessed=0
+{"message_id": "6457bc72-8b44-4b2f-875c-45282654f091", "event_time_utc": "2026-03-21T09:59:55.198415+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "process_create", "ip": "10.0.0.8", "device": "CORP-LT02", "is_anomalous": false}}
+<14>Mar 21 19:59:42 CORP-LT02 splunk: user=eve.jones event=siem_alert src_ip=10.0.0.3 hostname=CORP-LT02 anomalous=False
+{"message_id": "f404aeb7-473f-4583-9bab-ef8b0e3421f4", "event_time_utc": "2026-03-21T15:17:33.992877+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"user": "frank.liu", "event": "siem_alert", "ip": "10.0.0.8", "device": "UNKNOWN-9F3", "is_anomalous": false}}
+{"message_id": "70e4d74a-a393-45f6-af8c-5e1cce3fe6aa", "event_time_utc": "2026-03-21T09:47:06.783343+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "process_create"}}
+{"message_id": "8bb2e0cb-f74e-4948-b3e8-ebf6cd2ae08d", "event_time_utc": "2026-03-21T16:37:03.161121+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"username": "bob.chen", "action": "process_create", "src_ip": "10.0.0.15", "hostname": "WIN-WKST04", "anomaly": false}}
+timestamp=2026-03-21T18:33:25.992050+00:00 actor=grace.kim action=db_access src_ip=10.0.0.14 hostname=CORP-LT02 facility=DataSunrise anomalous=False rows_accessed=93
+timestamp=2026-03-21T18:09:26.729779+00:00 actor=grace.kim action=db_access src_ip=192.168.1.1 hostname=CORE-SRV02 facility=DataSunrise anomalous=False rows_accessed=504
+<14>Mar 21 12:29:32 JUMP-BOX01 sshd: user=dave.smith event=login_success src_ip=192.168.1.9 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T14:29:16.504996+00:00 actor=eve.jones action=login_failure src_ip=10.0.0.10 hostname=UNKNOWN-9F3 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "a3d9fcbd-dc41-477c-957c-b091a059c422", "event_time_utc": "2026-03-21T14:39:14.948077+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"user": "carol.patel", "event": "login_success", "ip": "10.0.0.1", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "a1a40f07-fa6e-4a21-b5c2-2dab7c6bbbd7", "event_time_utc": "2026-03-21T10:53:50.640526+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "process_create", "src_ip": "192.168.1.2", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+<14>Mar 21 09:08:39 UNKNOWN-9F3 pf: user=bob.chen event=network_transfer src_ip=10.0.0.10 hostname=UNKNOWN-9F3 anomalous=False
+{"message_id": "3469d1f6-4a4d-4b50-b48c-7c2e516e13d0", "event_time_utc": "2026-03-21T20:40:29.411449+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "email_alert", "src_ip": "10.0.0.13", "hostname": "CORP-PC07", "anomaly": false}}
+{"message_id": "396d7203-14bb-4302-b585-120c7c78623b", "event_time_utc": "2026-03-21T17:15:04.424384+00:00", "source_system": "network", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "network_transfer", "ip": "10.0.0.14", "device": "CORP-LT02", "is_anomalous": false}}
+{"message_id": "6d6f3ab6-7c44-47de-a8e6-1483aec101af", "event_time_utc": "2026-03-21T09:54:47.124383+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "login_success", "ip": "192.168.1.1", "device": "CORP-LT02", "is_anomalous": false}}
+{"message_id": "4a1c47a7-8970-4322-9e26-c68ef06ad1fe", "event_time_utc": "2026-03-21T18:10:43.130336+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"actor": "dave.smith", "event": "siem_alert"}}
+timestamp=2026-03-21T11:13:56.830694+00:00 actor=dave.smith action=siem_alert src_ip=10.0.0.16 hostname=DB-SRV01 facility=siem anomalous=False rows_accessed=0
+{"message_id": "8d0aa26b-0e86-4fd6-a086-a21ea2910c85", "event_time_utc": "2026-03-21T16:54:52.301728+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_success", "src_ip": "192.168.1.2", "hostname": "DB-SRV01", "anomaly": false}}
+eve.jones,email_alert,192.168.1.1,CORP-LT02,2026-03-21T17:24:57.894528+00:00,email,false,0
+<14>Mar 21 10:27:01 CORE-SRV02 postfix: user=henry.tan event=email_alert src_ip=10.0.0.19 hostname=CORE-SRV02 anomalous=False
+{"message_id": "93478dfb-acd4-4295-ba3e-c44afd61a584", "event_time_utc": "2026-03-21T10:23:47.535569+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "process_create", "ip": "10.0.0.17", "device": "CORP-LT02", "is_anomalous": false}}
+timestamp=2026-03-21T19:41:13.515598+00:00 actor=dave.smith action=process_create src_ip=10.0.0.15 hostname=UNKNOWN-9F3 facility=CrowdStrike anomalous=False rows_accessed=0
+timestamp=2026-03-21T08:10:47.456755+00:00 actor=carol.patel action=email_alert src_ip=10.0.0.6 hostname=DB-SRV01 facility=Proofpoint anomalous=False rows_accessed=0
+{"message_id": "ccc57055-38e2-4c34-9961-f3b2f7af7933", "event_time_utc": "2026-03-21T13:18:48.497521+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "db_access", "ip": "10.0.0.5", "device": "UNKNOWN-9F3", "is_anomalous": false}}
+grace.kim,network_transfer,10.0.0.5,CORE-SRV02,2026-03-21T12:26:10.375072+00:00,network,false,0
+{"message_id": "f4f43537-f44d-4795-a60a-1a8130ac41eb", "event_time_utc": "2026-03-21T12:18:14.595663+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "dave.smith", "event": "login_failure"}}
+frank.liu,login_success,192.168.1.3,CORP-LT01,2026-03-21T16:51:49.717488+00:00,auth,false,0
+{"message_id": "fc80dfda-2a87-4421-988f-b9ef47a5e844", "event_time_utc": "2026-03-21T14:04:03.466963+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "login_success", "ip": "10.0.0.2", "device": "CORE-SRV02", "is_anomalous": false}}
+{"message_id": "16d93758-c132-4584-80de-26b783ee2c1c", "event_time_utc": "2026-03-21T18:04:10.715357+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"user": "carol.patel", "event": "network_transfer", "ip": "192.168.1.3", "device": "CORE-SRV02", "is_anomalous": false}}
+eve.jones,process_create,192.168.1.2,UNKNOWN-9F3,2026-03-21T08:27:09.031557+00:00,edr,false,0
+<14>Mar 21 10:12:48 JUMP-BOX01 sshd: user=eve.jones event=login_failure src_ip=10.0.0.6 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T14:18:21.745789+00:00 actor=grace.kim action=login_success src_ip=10.0.0.12 hostname=DB-SRV01 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "e660ac02-e27c-49c7-bf9a-b4a59873a683", "event_time_utc": "2026-03-21T18:24:19.603550+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "login_success", "src_ip": "10.0.0.8", "hostname": "CORP-LT02", "anomaly": false}}
+<14>Mar 21 10:33:20 CORE-SRV02 pf: user=dave.smith event=network_transfer src_ip=10.0.0.8 hostname=CORE-SRV02 anomalous=False
+bob.chen,siem_alert,192.168.1.4,CORP-PC07,2026-03-21T15:01:12.675867+00:00,siem,false,0
+alice.morgan,login_success,10.0.0.14,JUMP-BOX01,2026-03-21T14:38:34.046289+00:00,auth,false,0
+timestamp=2026-03-21T10:38:35.358572+00:00 actor=eve.jones action=db_access src_ip=10.0.0.14 hostname=CORP-LT02 facility=DataSunrise anomalous=False rows_accessed=1958
+carol.patel,login_failure,10.0.0.4,WIN-WKST04,2026-03-21T17:34:51.011573+00:00,auth,false,0
+{"message_id": "8687532c-d218-45ef-bd71-dae4372cff27", "event_time_utc": "2026-03-21T20:03:04.071475+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "process_create", "ip": "10.0.0.13", "device": "CORP-LT01", "is_anomalous": false}}
+{"message_id": "6955ab89-3b87-4e3b-9d65-a48aa0da26c6", "event_time_utc": "2026-03-21T18:51:31.768204+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "login_success", "ip": "192.168.1.1", "device": "CORP-PC07", "is_anomalous": false}}
+{"message_id": "e0465223-7847-4c81-bb80-19f74bb0064c", "event_time_utc": "2026-03-21T09:33:14.163601+00:00", "source_system": "network", "payload_version": "v1", "payload": {"actor": "frank.liu", "event": "network_transfer"}}
+<14>Mar 21 12:10:18 CORP-LT01 splunk: user=dave.smith event=siem_alert src_ip=10.0.0.7 hostname=CORP-LT01 anomalous=False
+alice.morgan,db_access,10.0.0.10,CORP-PC07,2026-03-21T19:56:07.892774+00:00,db,false,640
+timestamp=2026-03-21T15:32:01.252959+00:00 actor=bob.chen action=login_success src_ip=192.168.1.11 hostname=CORP-LT01 facility=ActiveDirectory anomalous=False rows_accessed=0
+<14>Mar 21 08:20:28 DB-SRV01 postfix: user=frank.liu event=email_alert src_ip=10.0.0.8 hostname=DB-SRV01 anomalous=False
+{"message_id": "c91ae446-0559-4504-9aa6-d794b8e6994b", "event_time_utc": "2026-03-21T18:42:28.827742+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "email_alert", "ip": "192.168.1.4", "device": "JUMP-BOX01", "is_anomalous": false}}
+timestamp=2026-03-21T15:22:10.845421+00:00 actor=dave.smith action=db_access src_ip=192.168.1.7 hostname=JUMP-BOX01 facility=DataSunrise anomalous=False rows_accessed=1581
+{"message_id": "a75636ef-94a5-4210-9677-e7d029512110", "event_time_utc": "2026-03-21T09:08:25.914708+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_failure"}}
+{"message_id": "3eb948a3-dd4e-4706-8202-07ec68450d22", "event_time_utc": "2026-03-21T09:31:38.314505+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "siem_alert", "src_ip": "10.0.0.11", "hostname": "CORE-SRV02", "anomaly": false}}
+{"message_id": "de2d1c6f-bb18-4089-9197-deb6ff586dcb", "event_time_utc": "2026-03-21T15:41:38.006952+00:00", "source_system": "database", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "db_access", "ip": "192.168.1.6", "device": "JUMP-BOX01", "is_anomalous": false}}
+<14>Mar 21 19:14:43 JUMP-BOX01 pf: user=alice.morgan event=network_transfer src_ip=192.168.1.13 hostname=JUMP-BOX01 anomalous=False
+{"message_id": "d43e9f78-5e8c-4b5f-a496-783b728a79bd", "event_time_utc": "2026-03-21T19:03:54.950968+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "siem_alert"}}
+eve.jones,email_alert,192.168.1.4,JUMP-BOX01,2026-03-21T08:21:21.544634+00:00,email,false,0
+<14>Mar 21 13:27:05 CORP-PC07 sshd: user=frank.liu event=login_success src_ip=192.168.1.13 hostname=CORP-PC07 anomalous=False
+{"message_id": "088a34b8-cd08-4d00-91a4-16c698251c9b", "event_time_utc": "2026-03-21T09:44:53.199792+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "siem_alert", "ip": "10.0.0.6", "device": "CORE-SRV02", "is_anomalous": false}}
+grace.kim,login_failure,192.168.1.8,CORP-LT02,2026-03-21T19:20:10.796877+00:00,auth,false,0
+{"message_id": "d466f390-e9fb-452d-a129-811f40cf7756", "event_time_utc": "2026-03-21T10:30:51.164077+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "login_success", "src_ip": "192.168.1.13", "hostname": "CORP-LT02", "anomaly": false}}
+<14>Mar 21 11:20:45 CORP-PC07 oracle: user=carol.patel event=db_access src_ip=192.168.1.6 hostname=CORP-PC07 anomalous=False
+<14>Mar 21 16:16:02 UNKNOWN-9F3 sshd: user=carol.patel event=login_success src_ip=192.168.1.11 hostname=UNKNOWN-9F3 anomalous=False
+<14>Mar 21 14:14:50 CORP-PC07 splunk: user=grace.kim event=siem_alert src_ip=10.0.0.18 hostname=CORP-PC07 anomalous=False
+carol.patel,login_failure,10.0.0.15,CORP-PC07,2026-03-21T14:02:44.041248+00:00,auth,false,0
+timestamp=2026-03-21T03:10:18.400481+00:00 actor=mallory.breach action=db_access src_ip=192.168.1.6 hostname=CORP-LT01 facility=DataSunrise anomalous=True rows_accessed=1006
+bob.chen,login_success,192.168.1.4,CORP-LT01,2026-03-21T08:01:32.096235+00:00,auth,false,0
+{"message_id": "831175c7-be62-4f09-b0b4-2bf837be2374", "event_time_utc": "2026-03-21T16:51:43.511712+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "siem_alert"}}
+alice.morgan,process_create,192.168.1.8,JUMP-BOX01,2026-03-21T09:36:00.372308+00:00,edr,false,0
+alice.morgan,siem_alert,192.168.1.7,DB-SRV01,2026-03-21T16:28:04.616560+00:00,siem,false,0
+{"message_id": "5a1ecb7b-8991-403d-b92c-b4f339121cf5", "event_time_utc": "2026-03-21T19:42:13.825979+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "email_alert", "ip": "192.168.1.13", "device": "DB-SRV01", "is_anomalous": false}}
+{"message_id": "ef990a25-7442-4feb-9487-79e789af7aaa", "event_time_utc": "2026-03-21T20:49:36.385353+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "network_transfer", "src_ip": "10.0.0.15", "hostname": "DB-SRV01", "anomaly": false}}
+grace.kim,siem_alert,10.0.0.1,CORE-SRV02,2026-03-21T12:37:06.598195+00:00,siem,false,0
+<14>Mar 21 11:18:46 UNKNOWN-9F3 pf: user=alice.morgan event=network_transfer src_ip=192.168.1.3 hostname=UNKNOWN-9F3 anomalous=False
+{"message_id": "79117cfa-64e0-493a-84b0-40d2c3858e25", "event_time_utc": "2026-03-21T15:00:57.929266+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "login_failure", "ip": "10.0.0.10", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "16ae01c3-5655-43e1-9448-dd4bd2e8ab56", "event_time_utc": "2026-03-21T11:22:41.969167+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "bob.chen", "action": "db_access", "src_ip": "192.168.1.3", "hostname": "JUMP-BOX01", "anomaly": false}}
+<14>Mar 21 03:07:28 WIN-WKST04 oracle: user=mallory.breach event=db_export src_ip=192.168.1.8 hostname=WIN-WKST04 anomalous=True
+henry.tan,network_transfer,192.168.1.14,WIN-WKST04,2026-03-21T14:37:57.783246+00:00,network,false,0
+<14>Mar 21 05:38:36 WIN-WKST04 postfix: user=peggy.insider event=email_alert src_ip=192.168.1.3 hostname=WIN-WKST04 anomalous=True
+timestamp=2026-03-21T15:36:17.498145+00:00 actor=eve.jones action=network_transfer src_ip=10.0.0.19 hostname=DB-SRV01 facility=PaloAlto anomalous=False rows_accessed=0
+bob.chen,process_create,10.0.0.16,UNKNOWN-9F3,2026-03-21T11:18:45.246918+00:00,edr,false,0
+{"message_id": "028d8b85-2fa3-4b47-9361-8c5be58a85f2", "event_time_utc": "2026-03-21T18:33:02.705576+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "login_success", "ip": "192.168.1.1", "device": "WIN-WKST04", "is_anomalous": false}}
+timestamp=2026-03-21T20:19:16.858999+00:00 actor=grace.kim action=process_create src_ip=192.168.1.11 hostname=CORP-LT01 facility=CrowdStrike anomalous=False rows_accessed=0
+<14>Mar 21 09:08:07 UNKNOWN-9F3 splunk: user=grace.kim event=siem_alert src_ip=192.168.1.9 hostname=UNKNOWN-9F3 anomalous=False
+timestamp=2026-03-21T10:26:07.409593+00:00 actor=carol.patel action=network_transfer src_ip=10.0.0.3 hostname=CORP-LT01 facility=PaloAlto anomalous=False rows_accessed=0
+frank.liu,db_access,10.0.0.13,DB-SRV01,2026-03-21T20:39:47.991592+00:00,db,false,710
+timestamp=2026-03-21T20:04:25.983114+00:00 actor=henry.tan action=email_alert src_ip=192.168.1.2 hostname=CORE-SRV02 facility=Proofpoint anomalous=False rows_accessed=0
+timestamp=2026-03-21T08:38:29.214209+00:00 actor=eve.jones action=login_success src_ip=10.0.0.11 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T08:16:23.303320+00:00 actor=henry.tan action=login_success src_ip=10.0.0.19 hostname=CORP-LT01 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "ecc1828b-0b4c-4d9c-bc40-87083d5320cf", "event_time_utc": "2026-03-21T14:29:54.011039+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "email_alert"}}
+{"message_id": "b18c99f7-12dc-4ec9-817f-aeed58334925", "event_time_utc": "2026-03-21T09:17:19.867089+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_success"}}
+<14>Mar 21 19:08:07 CORE-SRV02 crowdstrike: user=frank.liu event=process_create src_ip=10.0.0.4 hostname=CORE-SRV02 anomalous=False
+{"message_id": "bf6dd64c-073a-4323-b9e6-fa45294ae140", "event_time_utc": "2026-03-21T19:30:53.885778+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "process_create", "src_ip": "10.0.0.14", "hostname": "JUMP-BOX01", "anomaly": false}}
+<14>Mar 21 08:43:47 CORP-LT01 crowdstrike: user=frank.liu event=process_create src_ip=10.0.0.6 hostname=CORP-LT01 anomalous=False
+{"message_id": "90cc77ab-4330-439e-8dfa-0aa53bb615fc", "event_time_utc": "2026-03-21T11:22:34.969075+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "network_transfer", "src_ip": "10.0.0.2", "hostname": "WIN-WKST04", "anomaly": false}}
+timestamp=2026-03-21T11:37:40.364842+00:00 actor=bob.chen action=siem_alert src_ip=10.0.0.18 hostname=CORP-LT02 facility=siem anomalous=False rows_accessed=0
+{"message_id": "609904b6-5b88-4d75-8015-c127982bc667", "event_time_utc": "2026-03-21T10:20:22.055284+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"actor": "frank.liu", "event": "db_access"}}
+eve.jones,login_success,10.0.0.6,CORE-SRV02,2026-03-21T17:02:20.260401+00:00,auth,false,0
+<14>Mar 21 11:50:57 JUMP-BOX01 sshd: user=grace.kim event=login_failure src_ip=192.168.1.13 hostname=JUMP-BOX01 anomalous=False
+{"message_id": "03678353-ccec-43f1-857a-b8718cf2280e", "event_time_utc": "2026-03-21T10:23:11.568422+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "siem_alert", "src_ip": "10.0.0.4", "hostname": "CORE-SRV02", "anomaly": false}}
+timestamp=2026-03-21T19:10:03.623331+00:00 actor=henry.tan action=login_success src_ip=192.168.1.1 hostname=JUMP-BOX01 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "e5568695-bc8c-4503-9d1f-38ccdabd4d3d", "event_time_utc": "2026-03-21T12:36:54.326414+00:00", "source_system": "netflow", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "network_transfer", "src_ip": "10.0.0.16", "hostname": "CORP-LT02", "anomaly": false}}
+{"message_id": "29736f1a-aa52-43ed-88d7-9c9c7fd7ad47", "event_time_utc": "2026-03-21T11:05:22.077224+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_success"}}
+bob.chen,login_success,192.168.1.9,UNKNOWN-9F3,2026-03-21T20:51:02.153981+00:00,auth,false,0
+{"message_id": "ce863b13-31d8-4938-99ff-3eb5a3595d0d", "event_time_utc": "2026-03-21T15:40:44.588204+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "login_success", "ip": "192.168.1.14", "device": "DB-SRV01", "is_anomalous": false}}
+bob.chen,email_alert,192.168.1.5,CORP-PC07,2026-03-21T08:43:34.175959+00:00,email,false,0
+<14>Mar 21 18:37:28 CORP-PC07 postfix: user=henry.tan event=email_alert src_ip=192.168.1.3 hostname=CORP-PC07 anomalous=False
+timestamp=2026-03-21T16:56:42.695389+00:00 actor=eve.jones action=db_access src_ip=192.168.1.5 hostname=WIN-WKST04 facility=DataSunrise anomalous=False rows_accessed=1068
+alice.morgan,db_access,192.168.1.11,JUMP-BOX01,2026-03-21T15:08:36.656729+00:00,db,false,4549
+{"message_id": "148bfc4a-e275-4ce5-86c7-8848b6f66340", "event_time_utc": "2026-03-21T20:17:52.635538+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "process_create", "src_ip": "10.0.0.11", "hostname": "CORP-LT01", "anomaly": false}}
+{"message_id": "866d84a9-f6b5-4d2e-a52c-40d1e764d1d9", "event_time_utc": "2026-03-21T20:28:28.139919+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "login_success", "ip": "10.0.0.2", "device": "CORP-PC07", "is_anomalous": false}}
+{"message_id": "f284a161-14c6-4f7b-a92a-57c26a6a83e1", "event_time_utc": "2026-03-21T20:25:49.104481+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "process_create", "ip": "10.0.0.9", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "ceac3e10-6f5c-4878-b3ad-fcf9c4732a4a", "event_time_utc": "2026-03-21T14:54:42.428132+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_success"}}
+<14>Mar 21 18:44:27 CORP-LT01 sshd: user=henry.tan event=login_failure src_ip=192.168.1.3 hostname=CORP-LT01 anomalous=False
+<14>Mar 21 12:17:06 WIN-WKST04 oracle: user=frank.liu event=db_access src_ip=10.0.0.19 hostname=WIN-WKST04 anomalous=False
+<14>Mar 21 20:36:44 JUMP-BOX01 oracle: user=dave.smith event=db_access src_ip=10.0.0.19 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T10:36:48.059802+00:00 actor=frank.liu action=email_alert src_ip=192.168.1.1 hostname=CORP-LT02 facility=Proofpoint anomalous=False rows_accessed=0
+timestamp=2026-03-21T16:30:00.207420+00:00 actor=eve.jones action=network_transfer src_ip=10.0.0.6 hostname=JUMP-BOX01 facility=PaloAlto anomalous=False rows_accessed=0
+{"message_id": "58d583ba-03d8-4681-8cd8-21a3f46a6f74", "event_time_utc": "2026-03-21T16:42:22.073239+00:00", "source_system": "email", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "email_alert"}}
+{"message_id": "e4a3b1cd-b1e3-4a46-88b6-1224a6e05f1d", "event_time_utc": "2026-03-21T08:47:28.405303+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"username": "bob.chen", "action": "db_access", "src_ip": "10.0.0.19", "hostname": "CORP-LT01", "anomaly": false}}
+grace.kim,login_success,10.0.0.4,CORP-PC07,2026-03-21T13:13:27.969900+00:00,auth,false,0
+{"message_id": "f4119d37-516a-4949-9874-be29bcb325d3", "event_time_utc": "2026-03-21T14:32:56.522676+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "network_transfer", "src_ip": "10.0.0.17", "hostname": "CORP-LT02", "anomaly": false}}
+{"message_id": "c13c01d4-ef79-445b-96d8-123b035170b9", "event_time_utc": "2026-03-21T12:20:03.346544+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "login_success", "ip": "10.0.0.19", "device": "CORP-LT01", "is_anomalous": false}}
+<14>Mar 21 16:58:30 CORP-LT02 splunk: user=carol.patel event=siem_alert src_ip=192.168.1.13 hostname=CORP-LT02 anomalous=False
+dave.smith,siem_alert,192.168.1.3,JUMP-BOX01,2026-03-21T10:12:58.212679+00:00,siem,false,0
+<14>Mar 21 09:15:53 WIN-WKST04 pf: user=eve.jones event=network_transfer src_ip=192.168.1.13 hostname=WIN-WKST04 anomalous=False
+grace.kim,login_failure,10.0.0.16,JUMP-BOX01,2026-03-21T16:35:18.375263+00:00,auth,false,0
+grace.kim,email_alert,10.0.0.19,JUMP-BOX01,2026-03-21T13:22:04.950005+00:00,email,false,0
+timestamp=2026-03-21T17:57:55.858822+00:00 actor=carol.patel action=network_transfer src_ip=10.0.0.6 hostname=WIN-WKST04 facility=PaloAlto anomalous=False rows_accessed=0
+{"message_id": "03359fc1-7860-428c-b34a-50f4f7a90faf", "event_time_utc": "2026-03-21T12:10:18.705547+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "process_create"}}
+{"message_id": "5b0c07b2-799a-4b27-a35b-a6dc3191963a", "event_time_utc": "2026-03-21T10:33:23.964093+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"user": "frank.liu", "event": "siem_alert", "ip": "192.168.1.6", "device": "WIN-WKST04", "is_anomalous": false}}
+<14>Mar 21 09:03:14 CORE-SRV02 crowdstrike: user=frank.liu event=process_create src_ip=192.168.1.9 hostname=CORE-SRV02 anomalous=False
+<14>Mar 21 15:46:06 DB-SRV01 pf: user=eve.jones event=network_transfer src_ip=192.168.1.13 hostname=DB-SRV01 anomalous=False
+henry.tan,siem_alert,192.168.1.9,DB-SRV01,2026-03-21T10:53:31.130988+00:00,siem,false,0
+timestamp=2026-03-21T11:08:18.122827+00:00 actor=dave.smith action=network_transfer src_ip=10.0.0.11 hostname=CORP-LT01 facility=PaloAlto anomalous=False rows_accessed=0
+<14>Mar 21 15:37:11 CORP-PC07 pf: user=carol.patel event=network_transfer src_ip=10.0.0.12 hostname=CORP-PC07 anomalous=False
+timestamp=2026-03-21T10:53:27.479549+00:00 actor=carol.patel action=siem_alert src_ip=10.0.0.2 hostname=JUMP-BOX01 facility=siem anomalous=False rows_accessed=0
+{"message_id": "9cf6bc5c-b567-408f-9682-a7d9989bd76c", "event_time_utc": "2026-03-21T18:40:46.304951+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "siem_alert", "src_ip": "10.0.0.13", "hostname": "CORP-LT01", "anomaly": false}}
+{"message_id": "e815af2c-92b5-4756-8a23-2303f3bf8030", "event_time_utc": "2026-03-21T12:24:15.092893+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "db_access", "src_ip": "192.168.1.6", "hostname": "WIN-WKST04", "anomaly": false}}
+{"message_id": "be4cd4ee-4dc8-4f8b-bbbe-c6bdd6b2f5de", "event_time_utc": "2026-03-21T12:52:40.174913+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "login_success"}}
+frank.liu,login_success,192.168.1.5,DB-SRV01,2026-03-21T18:09:41.044650+00:00,auth,false,0
+grace.kim,siem_alert,10.0.0.9,CORP-LT01,2026-03-21T07:51:34.860583+00:00,siem,false,0
+{"message_id": "115dc45f-bbbd-46a4-8841-7fc497197295", "event_time_utc": "2026-03-21T12:37:01.143266+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "db_access", "ip": "192.168.1.11", "device": "UNKNOWN-9F3", "is_anomalous": false}}
+{"message_id": "1c36988d-a4bf-45a7-b65c-34d92fe32b57", "event_time_utc": "2026-03-21T17:21:43.309918+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "login_failure", "ip": "192.168.1.2", "device": "CORE-SRV02", "is_anomalous": false}}
+<14>Mar 21 11:16:04 CORE-SRV02 postfix: user=frank.liu event=email_alert src_ip=192.168.1.12 hostname=CORE-SRV02 anomalous=False
+timestamp=2026-03-21T12:15:32.495991+00:00 actor=grace.kim action=process_create src_ip=10.0.0.8 hostname=CORP-LT02 facility=CrowdStrike anomalous=False rows_accessed=0
+frank.liu,login_success,192.168.1.12,UNKNOWN-9F3,2026-03-21T13:19:17.937917+00:00,auth,false,0
+eve.jones,login_failure,10.0.0.11,CORP-PC07,2026-03-21T10:16:57.132325+00:00,auth,false,0
+timestamp=2026-03-21T13:52:26.961549+00:00 actor=bob.chen action=network_transfer src_ip=10.0.0.6 hostname=CORP-LT02 facility=PaloAlto anomalous=False rows_accessed=0
+<14>Mar 21 09:22:20 JUMP-BOX01 pf: user=eve.jones event=network_transfer src_ip=10.0.0.9 hostname=JUMP-BOX01 anomalous=False
+{"message_id": "0e130ac1-64cb-4665-b4dd-7ff13f3cfee8", "event_time_utc": "2026-03-21T13:45:29.725196+00:00", "source_system": "db", "payload_version": "v1", "payload": {"actor": "dave.smith", "event": "db_access"}}
+{"message_id": "cc55633f-08b7-4d04-9725-fd8fa2a8f52f", "event_time_utc": "2026-03-21T12:46:40.177427+00:00", "source_system": "database", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "db_access"}}
+dave.smith,db_access,10.0.0.3,CORE-SRV02,2026-03-21T13:42:20.042537+00:00,db,false,4643
+timestamp=2026-03-21T20:43:51.722865+00:00 actor=alice.morgan action=process_create src_ip=10.0.0.14 hostname=UNKNOWN-9F3 facility=CrowdStrike anomalous=False rows_accessed=0
+timestamp=2026-03-21T12:01:15.692714+00:00 actor=frank.liu action=login_failure src_ip=192.168.1.4 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "884d8133-9040-458b-8e2e-79e97ef5b5d9", "event_time_utc": "2026-03-21T15:28:25.426284+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "login_failure", "src_ip": "192.168.1.4", "hostname": "DB-SRV01", "anomaly": false}}
+timestamp=2026-03-21T13:58:46.359684+00:00 actor=dave.smith action=siem_alert src_ip=192.168.1.14 hostname=CORP-LT02 facility=siem anomalous=False rows_accessed=0
+<14>Mar 21 10:53:02 CORP-LT01 oracle: user=henry.tan event=db_access src_ip=10.0.0.6 hostname=CORP-LT01 anomalous=False
+{"message_id": "91dad6c1-a093-47c4-88f9-0f54898d0e1e", "event_time_utc": "2026-03-21T08:43:22.659892+00:00", "source_system": "netflow", "payload_version": "v1", "payload": {"username": "bob.chen", "action": "network_transfer", "src_ip": "192.168.1.11", "hostname": "WIN-WKST04", "anomaly": false}}
+timestamp=2026-03-21T17:19:34.143471+00:00 actor=henry.tan action=siem_alert src_ip=10.0.0.5 hostname=DB-SRV01 facility=siem anomalous=False rows_accessed=0
+timestamp=2026-03-21T11:52:08.717839+00:00 actor=frank.liu action=process_create src_ip=192.168.1.10 hostname=WIN-WKST04 facility=CrowdStrike anomalous=False rows_accessed=0
+henry.tan,login_failure,192.168.1.10,CORP-PC07,2026-03-21T12:11:03.929110+00:00,auth,false,0
+grace.kim,login_success,10.0.0.14,UNKNOWN-9F3,2026-03-21T15:35:45.646740+00:00,auth,false,0
+{"message_id": "8d2b94e3-b81e-49cf-8083-cee01dd7fc41", "event_time_utc": "2026-03-21T11:52:23.920456+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "login_success", "src_ip": "10.0.0.11", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "26defb11-9f45-4beb-8987-47e91e22a722", "event_time_utc": "2026-03-21T19:08:07.611306+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "frank.liu", "event": "login_success", "ip": "10.0.0.16", "device": "CORE-SRV02", "is_anomalous": false}}
+{"message_id": "3054bfd2-0371-4a5c-baa8-fd62dbca86a8", "event_time_utc": "2026-03-21T08:48:17.684008+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "process_create", "src_ip": "10.0.0.3", "hostname": "DB-SRV01", "anomaly": false}}
+{"message_id": "b4b07c70-349b-4102-bc74-3534fe562362", "event_time_utc": "2026-03-21T18:12:40.004410+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "login_success", "src_ip": "192.168.1.8", "hostname": "CORP-LT02", "anomaly": false}}
+bob.chen,network_transfer,10.0.0.11,CORP-LT01,2026-03-21T11:27:53.532546+00:00,network,false,0
+<14>Mar 21 19:32:26 DB-SRV01 oracle: user=grace.kim event=db_access src_ip=10.0.0.11 hostname=DB-SRV01 anomalous=False
+{"message_id": "7eafab22-e732-46b8-b6c6-52419b1f3ff5", "event_time_utc": "2026-03-21T18:43:17.352512+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"actor": "frank.liu", "event": "process_create"}}
+{"message_id": "71f0b68c-612a-4d49-9881-66053666b112", "event_time_utc": "2026-03-21T09:28:54.933588+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "login_failure"}}
+{"message_id": "45ec3845-e5b1-4425-9175-8fdf09fd4310", "event_time_utc": "2026-03-21T10:16:52.319266+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "siem_alert", "ip": "10.0.0.16", "device": "UNKNOWN-9F3", "is_anomalous": false}}
+{"message_id": "8687532c-d218-45ef-bd71-dae4372cff27", "event_time_utc": "2026-03-21T20:03:04.071475+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "process_create", "ip": "10.0.0.13", "device": "CORP-LT01", "is_anomalous": false}}
+henry.tan,db_access,10.0.0.5,WIN-WKST04,2026-03-21T12:50:33.194699+00:00,db,false,3233
+{"message_id": "c549fcee-110b-4988-b0c0-1d0079dd46f6", "event_time_utc": "2026-03-21T15:18:11.877095+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "siem_alert", "src_ip": "10.0.0.19", "hostname": "CORP-LT02", "anomaly": false}}
+timestamp=2026-03-21T16:13:30.688305+00:00 actor=frank.liu action=siem_alert src_ip=10.0.0.17 hostname=CORE-SRV02 facility=siem anomalous=False rows_accessed=0
+{"message_id": "0599abc4-c5ab-4031-b686-7ab802026cb0", "event_time_utc": "2026-03-21T14:48:37.047748+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "login_success", "src_ip": "10.0.0.18", "hostname": "CORP-LT01", "anomaly": false}}
+{"message_id": "1d64e744-4359-4d5e-b0f8-27ea06a6b012", "event_time_utc": "2026-03-21T17:20:08.813846+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "email_alert", "src_ip": "192.168.1.14", "hostname": "CORP-PC07", "anomaly": false}}
+{"message_id": "2d3690db-6924-4c71-9d09-acdb99bbd242", "event_time_utc": "2026-03-21T11:22:34.808377+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "network_transfer"}}
+carol.patel,login_failure,10.0.0.15,CORE-SRV02,2026-03-21T20:11:47.582265+00:00,auth,false,0
+timestamp=2026-03-21T17:09:48.163194+00:00 actor=bob.chen action=login_success src_ip=10.0.0.7 hostname=CORE-SRV02 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T17:03:35.870656+00:00 actor=carol.patel action=network_transfer src_ip=192.168.1.6 hostname=WIN-WKST04 facility=PaloAlto anomalous=False rows_accessed=0
+{"message_id": "c16f2b89-b105-4848-b9f1-1658cc72cb8d", "event_time_utc": "2026-03-21T17:26:48.526872+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "process_create", "ip": "192.168.1.9", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "f69b1998-a6a1-426f-97a5-5448901125a2", "event_time_utc": "2026-03-21T18:49:48.140333+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "siem_alert", "src_ip": "10.0.0.9", "hostname": "CORE-SRV02", "anomaly": false}}
+{"message_id": "ca017aba-2e67-4e4f-9503-9416ad97682b", "event_time_utc": "2026-03-21T12:25:40.554242+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "email_alert", "src_ip": "10.0.0.7", "hostname": "CORP-LT01", "anomaly": false}}
+alice.morgan,db_access,10.0.0.17,CORP-PC07,2026-03-21T20:34:41.345471+00:00,db,false,754
+timestamp=2026-03-21T19:48:21.252270+00:00 actor=frank.liu action=siem_alert src_ip=192.168.1.8 hostname=DB-SRV01 facility=siem anomalous=False rows_accessed=0
+<14>Mar 21 14:25:23 CORP-LT02 splunk: user=eve.jones event=siem_alert src_ip=192.168.1.1 hostname=CORP-LT02 anomalous=False
+{"message_id": "b000b31f-6e1e-4302-8b6d-bcfb5523ab6d", "event_time_utc": "2026-03-21T15:04:59.427726+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "email_alert", "ip": "192.168.1.14", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "84377161-e06f-43f3-a987-d95299fa927f", "event_time_utc": "2026-03-21T17:22:36.359408+00:00", "source_system": "database", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "db_access"}}
+{"message_id": "36ed473e-9a49-42e3-b296-bf0bb082a096", "event_time_utc": "2026-03-21T18:13:52.505355+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_failure", "src_ip": "10.0.0.17", "hostname": "JUMP-BOX01", "anomaly": false}}
+henry.tan,siem_alert,10.0.0.1,CORP-LT02,2026-03-21T11:09:03.203772+00:00,siem,false,0
+timestamp=2026-03-21T15:53:41.429774+00:00 actor=eve.jones action=db_access src_ip=192.168.1.10 hostname=DB-SRV01 facility=DataSunrise anomalous=False rows_accessed=1313
+{"message_id": "815c73d2-a8e6-408c-8b2d-6e35130869a0", "event_time_utc": "2026-03-21T15:20:43.030464+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "network_transfer", "src_ip": "10.0.0.1", "hostname": "CORP-LT01", "anomaly": false}}
+{"message_id": "2788b877-f3f7-4db8-9a17-64d903c87d21", "event_time_utc": "2026-03-21T14:35:43.039306+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "siem_alert", "src_ip": "10.0.0.4", "hostname": "CORP-LT01", "anomaly": false}}
+{"message_id": "83895597-960a-46fe-94ed-566cefb41a84", "event_time_utc": "2026-03-21T15:30:16.904897+00:00", "source_system": "database", "payload_version": "v1", "payload": {"user": "henry.tan", "event": "db_access", "ip": "10.0.0.12", "device": "JUMP-BOX01", "is_anomalous": false}}
+timestamp=2026-03-21T10:01:21.221078+00:00 actor=alice.morgan action=login_success src_ip=10.0.0.7 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "8f9af3f4-f5a2-481a-8519-0e2843947be9", "event_time_utc": "2026-03-21T18:40:22.122547+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_success", "src_ip": "192.168.1.8", "hostname": "WIN-WKST04", "anomaly": false}}
+<14>Mar 21 20:23:20 CORE-SRV02 oracle: user=carol.patel event=db_access src_ip=192.168.1.3 hostname=CORE-SRV02 anomalous=False
+<14>Mar 21 16:17:43 CORP-PC07 pf: user=carol.patel event=network_transfer src_ip=192.168.1.1 hostname=CORP-PC07 anomalous=False
+alice.morgan,db_access,10.0.0.1,CORP-PC07,2026-03-21T20:15:51.663372+00:00,db,false,1041
+{"message_id": "a33dc8ef-c9cc-4e5a-9bde-b6f5f3693856", "event_time_utc": "2026-03-21T20:47:06.300176+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "process_create", "ip": "10.0.0.1", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "4bafcf51-879a-4e5d-82b5-e4096d252f83", "event_time_utc": "2026-03-21T12:02:08.454935+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "login_success"}}
+bob.chen,login_success,10.0.0.10,UNKNOWN-9F3,2026-03-21T19:42:29.532298+00:00,auth,false,0
+timestamp=2026-03-21T13:03:26.816544+00:00 actor=carol.patel action=process_create src_ip=192.168.1.6 hostname=WIN-WKST04 facility=CrowdStrike anomalous=False rows_accessed=0
+<14>Mar 21 17:59:01 CORP-LT02 postfix: user=bob.chen event=email_alert src_ip=10.0.0.13 hostname=CORP-LT02 anomalous=False
+{"message_id": "2544e7c4-31aa-45cc-9f53-d712f40daa28", "event_time_utc": "2026-03-21T19:37:37.681933+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "siem_alert", "src_ip": "192.168.1.10", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+<14>Mar 21 16:06:45 UNKNOWN-9F3 splunk: user=eve.jones event=siem_alert src_ip=192.168.1.4 hostname=UNKNOWN-9F3 anomalous=False
+{"message_id": "f58c7123-a6f7-4e5c-812f-b5fb010a72f7", "event_time_utc": "2026-03-21T17:47:07.567964+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"user": "henry.tan", "event": "db_access", "ip": "10.0.0.8", "device": "CORP-PC07", "is_anomalous": false}}
+{"message_id": "0980da06-6fbb-4981-a5c3-bb3c3d7dd2ff", "event_time_utc": "2026-03-21T15:10:25.040102+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "siem_alert", "src_ip": "10.0.0.18", "hostname": "CORP-LT01", "anomaly": false}}
+<14>Mar 21 15:03:28 JUMP-BOX01 sshd: user=bob.chen event=login_success src_ip=192.168.1.4 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T17:36:18.781797+00:00 actor=carol.patel action=network_transfer src_ip=192.168.1.8 hostname=JUMP-BOX01 facility=PaloAlto anomalous=False rows_accessed=0
+carol.patel,siem_alert,192.168.1.4,CORE-SRV02,2026-03-21T08:37:13.453728+00:00,siem,false,0
+timestamp=2026-03-21T13:30:01.783028+00:00 actor=grace.kim action=login_failure src_ip=192.168.1.8 hostname=CORP-LT01 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T20:10:37.047851+00:00 actor=bob.chen action=email_alert src_ip=10.0.0.18 hostname=CORP-LT01 facility=Proofpoint anomalous=False rows_accessed=0
+bob.chen,email_alert,10.0.0.16,CORP-LT02,2026-03-21T18:29:17.591026+00:00,email,false,0
+{"message_id": "3c8f77a8-ab6a-45b9-bd68-eeb8efe82f69", "event_time_utc": "2026-03-21T11:40:22.097868+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "network_transfer", "src_ip": "10.0.0.15", "hostname": "JUMP-BOX01", "anomaly": false}}
+{"message_id": "206ed719-ab47-4a56-b2d0-e86a9a86f56d", "event_time_utc": "2026-03-21T16:51:35.257418+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "network_transfer", "src_ip": "192.168.1.13", "hostname": "CORP-LT01", "anomaly": false}}
+timestamp=2026-03-21T12:55:17.693958+00:00 actor=alice.morgan action=siem_alert src_ip=10.0.0.8 hostname=CORE-SRV02 facility=siem anomalous=False rows_accessed=0
+timestamp=2026-03-21T12:35:57.242561+00:00 actor=henry.tan action=process_create src_ip=10.0.0.6 hostname=CORP-LT01 facility=CrowdStrike anomalous=False rows_accessed=0
+{"message_id": "34ceedae-c537-4e1d-97d3-8490f7b3f6e0", "event_time_utc": "2026-03-21T20:55:02.546351+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "login_success", "ip": "10.0.0.7", "device": "CORP-PC07", "is_anomalous": false}}
+{"message_id": "6457bc72-8b44-4b2f-875c-45282654f091", "event_time_utc": "2026-03-21T09:59:55.198415+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "process_create", "ip": "10.0.0.8", "device": "CORP-LT02", "is_anomalous": false}}
+{"message_id": "283f6734-9c21-4d79-9dd6-ba4e733846ac", "event_time_utc": "2026-03-21T11:10:44.903202+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "login_success", "ip": "10.0.0.4", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "67eac659-5ac5-40ed-bf7f-d7d6592391fa", "event_time_utc": "2026-03-21T18:10:57.224798+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "network_transfer", "ip": "10.0.0.12", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "b1936f2d-ef6e-4ffc-b669-d33e89655726", "event_time_utc": "2026-03-21T09:54:09.263621+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "process_create", "src_ip": "10.0.0.14", "hostname": "WIN-WKST04", "anomaly": false}}
+{"message_id": "4a1aa398-645d-4b17-89b0-160d223fc6c9", "event_time_utc": "2026-03-21T12:35:45.363117+00:00", "source_system": "netflow", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "network_transfer", "src_ip": "192.168.1.11", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+eve.jones,login_success,10.0.0.12,UNKNOWN-9F3,2026-03-21T10:46:50.094918+00:00,auth,false,0
+timestamp=2026-03-21T18:34:37.237614+00:00 actor=bob.chen action=network_transfer src_ip=10.0.0.15 hostname=WIN-WKST04 facility=PaloAlto anomalous=False rows_accessed=0
+<14>Mar 21 03:50:08 DB-SRV01 sshd: user=oscar.threat event=login_success src_ip=192.168.1.6 hostname=DB-SRV01 anomalous=True
+henry.tan,login_failure,10.0.0.6,DB-SRV01,2026-03-21T11:14:58.428842+00:00,auth,false,0
+<14>Mar 21 20:02:30 UNKNOWN-9F3 postfix: user=grace.kim event=email_alert src_ip=10.0.0.17 hostname=UNKNOWN-9F3 anomalous=False
+timestamp=2026-03-21T17:42:05.964754+00:00 actor=carol.patel action=db_access src_ip=192.168.1.12 hostname=CORP-LT01 facility=DataSunrise anomalous=False rows_accessed=1234
+carol.patel,login_success,192.168.1.3,CORP-LT02,2026-03-21T14:42:12.124409+00:00,auth,false,0
+<14>Mar 21 19:20:07 JUMP-BOX01 oracle: user=frank.liu event=db_access src_ip=192.168.1.1 hostname=JUMP-BOX01 anomalous=False
+timestamp=2026-03-21T14:58:24.761122+00:00 actor=frank.liu action=login_failure src_ip=10.0.0.1 hostname=CORP-LT02 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "79bef0e6-48c0-42bc-be67-ab67f3b326aa", "event_time_utc": "2026-03-21T08:42:30.711438+00:00", "source_system": "network", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "network_transfer"}}
+<14>Mar 21 14:12:53 DB-SRV01 sshd: user=bob.chen event=login_success src_ip=10.0.0.16 hostname=DB-SRV01 anomalous=False
+timestamp=2026-03-21T18:03:56.916012+00:00 actor=alice.morgan action=process_create src_ip=192.168.1.3 hostname=CORE-SRV02 facility=CrowdStrike anomalous=False rows_accessed=0
+<14>Mar 21 16:41:55 CORP-LT02 splunk: user=bob.chen event=siem_alert src_ip=192.168.1.10 hostname=CORP-LT02 anomalous=False
+<14>Mar 21 19:32:26 DB-SRV01 oracle: user=grace.kim event=db_access src_ip=10.0.0.11 hostname=DB-SRV01 anomalous=False
+frank.liu,login_failure,192.168.1.2,CORP-LT01,2026-03-21T13:09:23.061930+00:00,auth,false,0
+{"message_id": "c30289fa-64b1-47bd-af73-91a84303e4d1", "event_time_utc": "2026-03-21T09:42:23.332923+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "email_alert", "ip": "192.168.1.6", "device": "CORP-PC07", "is_anomalous": false}}
+<14>Mar 21 08:03:56 CORP-LT02 sshd: user=frank.liu event=login_failure src_ip=192.168.1.10 hostname=CORP-LT02 anomalous=False
+{"message_id": "24ae281f-889e-4290-bcc2-ebb11af7cb8c", "event_time_utc": "2026-03-21T12:18:54.762279+00:00", "source_system": "db", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "db_access", "src_ip": "10.0.0.6", "hostname": "CORE-SRV02", "anomaly": false}}
+timestamp=2026-03-21T07:41:04.485520+00:00 actor=frank.liu action=login_success src_ip=10.0.0.8 hostname=CORE-SRV02 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "e57777ca-af8a-40de-bbce-56bb5681c037", "event_time_utc": "2026-03-21T11:52:20.003532+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "login_failure", "ip": "192.168.1.9", "device": "CORE-SRV02", "is_anomalous": false}}
+{"message_id": "c067e1f5-1262-4d29-a0d7-b7ee1cc4a6b5", "event_time_utc": "2026-03-21T08:58:42.464089+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_failure"}}
+frank.liu,login_failure,10.0.0.15,CORE-SRV02,2026-03-21T14:11:11.984858+00:00,auth,false,0
+eve.jones,login_success,192.168.1.7,CORP-LT01,2026-03-21T12:27:35.668063+00:00,auth,false,0
+eve.jones,process_create,192.168.1.10,CORP-PC07,2026-03-21T14:30:50.293316+00:00,edr,false,0
+frank.liu,siem_alert,10.0.0.4,CORP-LT02,2026-03-21T19:47:39.010162+00:00,siem,false,0
+henry.tan,login_success,192.168.1.6,WIN-WKST04,2026-03-21T16:52:52.015805+00:00,auth,false,0
+eve.jones,network_transfer,10.0.0.6,UNKNOWN-9F3,2026-03-21T08:51:47.484625+00:00,network,false,0
+frank.liu,network_transfer,192.168.1.14,CORE-SRV02,2026-03-21T10:29:28.592721+00:00,network,false,0
+<14>Mar 21 11:21:46 CORP-LT01 splunk: user=dave.smith event=siem_alert src_ip=192.168.1.7 hostname=CORP-LT01 anomalous=False
+{"message_id": "d73282be-5b74-4c23-88c7-08ef5a356b97", "event_time_utc": "2026-03-21T12:16:59.011245+00:00", "source_system": "database", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "db_access", "ip": "192.168.1.5", "device": "CORP-PC07", "is_anomalous": false}}
+timestamp=2026-03-21T08:30:45.711936+00:00 actor=grace.kim action=network_transfer src_ip=10.0.0.10 hostname=DB-SRV01 facility=PaloAlto anomalous=False rows_accessed=0
+{"message_id": "b62254ed-437c-46f1-b866-2eb17f5fb5e2", "event_time_utc": "2026-03-21T19:15:55.005006+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "siem_alert", "ip": "10.0.0.11", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "14995c1b-198a-43ce-8dca-4c849ed69ef9", "event_time_utc": "2026-03-21T15:20:24.765542+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_failure", "src_ip": "10.0.0.10", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "97920519-c00a-4320-bcdb-12b95ce4d98c", "event_time_utc": "2026-03-21T11:18:40.873842+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "login_failure", "ip": "10.0.0.19", "device": "DB-SRV01", "is_anomalous": false}}
+{"message_id": "dfa9ab93-418f-42d9-9019-f74c8d5c6a6c", "event_time_utc": "2026-03-21T15:00:43.009676+00:00", "source_system": "netflow", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "network_transfer", "ip": "10.0.0.8", "device": "CORP-LT01", "is_anomalous": false}}
+frank.liu,login_success,192.168.1.12,UNKNOWN-9F3,2026-03-21T13:19:17.937917+00:00,auth,false,0
+timestamp=2026-03-21T20:33:27.850413+00:00 actor=alice.morgan action=network_transfer src_ip=10.0.0.18 hostname=JUMP-BOX01 facility=PaloAlto anomalous=False rows_accessed=0
+timestamp=2026-03-21T09:47:57.645142+00:00 actor=dave.smith action=login_success src_ip=10.0.0.14 hostname=UNKNOWN-9F3 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "957ba4c2-af08-4ee0-94e2-09b956d21e8b", "event_time_utc": "2026-03-21T08:01:07.793095+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "email_alert", "ip": "10.0.0.16", "device": "DB-SRV01", "is_anomalous": false}}
+{"message_id": "10c481d4-4fe6-4b55-bbc6-b26ae82ea152", "event_time_utc": "2026-03-21T13:38:08.709374+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "login_success", "ip": "192.168.1.10", "device": "JUMP-BOX01", "is_anomalous": false}}
+<14>Mar 21 17:40:25 CORP-PC07 sshd: user=eve.jones event=login_success src_ip=10.0.0.2 hostname=CORP-PC07 anomalous=False
+frank.liu,login_failure,10.0.0.8,CORE-SRV02,2026-03-21T09:36:21.623966+00:00,auth,false,0
+{"message_id": "ae876e69-57d4-4ae1-82e8-deada609f52c", "event_time_utc": "2026-03-21T20:11:38.961725+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "login_failure"}}
+alice.morgan,login_failure,192.168.1.9,CORP-LT02,2026-03-21T10:03:34.050517+00:00,auth,false,0
+{"message_id": "90b584b6-a927-43ae-8e90-4f8fafc71a65", "event_time_utc": "2026-03-21T10:19:10.653652+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"actor": "dave.smith", "event": "siem_alert"}}
+{"message_id": "33195440-3e22-4377-9c9a-a886b226b0f6", "event_time_utc": "2026-03-21T10:57:10.745225+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "siem_alert", "src_ip": "10.0.0.10", "hostname": "DB-SRV01", "anomaly": false}}
+{"message_id": "4b536869-e4f3-43f7-a69b-dfa48917218f", "event_time_utc": "2026-03-21T09:27:06.475957+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "email_alert", "ip": "192.168.1.4", "device": "DB-SRV01", "is_anomalous": false}}
+dave.smith,siem_alert,10.0.0.1,WIN-WKST04,2026-03-21T12:50:13.656847+00:00,siem,false,0
+<14>Mar 21 13:34:39 CORE-SRV02 sshd: user=frank.liu event=login_success src_ip=10.0.0.10 hostname=CORE-SRV02 anomalous=False
+timestamp=2026-03-21T11:40:36.981801+00:00 actor=frank.liu action=login_failure src_ip=192.168.1.13 hostname=UNKNOWN-9F3 facility=ActiveDirectory anomalous=False rows_accessed=0
+eve.jones,login_failure,10.0.0.11,UNKNOWN-9F3,2026-03-21T08:33:34.390301+00:00,auth,false,0
+timestamp=2026-03-21T11:24:53.523906+00:00 actor=carol.patel action=login_failure src_ip=10.0.0.13 hostname=CORE-SRV02 facility=ActiveDirectory anomalous=False rows_accessed=0
+timestamp=2026-03-21T10:12:36.276741+00:00 actor=henry.tan action=email_alert src_ip=192.168.1.2 hostname=JUMP-BOX01 facility=Proofpoint anomalous=False rows_accessed=0
+frank.liu,network_transfer,10.0.0.15,CORE-SRV02,2026-03-21T14:07:58.547639+00:00,network,false,0
+timestamp=2026-03-21T17:27:17.779016+00:00 actor=henry.tan action=login_success src_ip=10.0.0.14 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+carol.patel,db_access,10.0.0.18,WIN-WKST04,2026-03-21T13:57:32.146497+00:00,db,false,1855
+{"message_id": "c66fc360-5b91-4e2d-9b3c-8f80349680fa", "event_time_utc": "2026-03-21T15:58:04.655030+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"actor": "grace.kim", "event": "siem_alert"}}
+timestamp=2026-03-21T18:42:36.563871+00:00 actor=henry.tan action=network_transfer src_ip=192.168.1.6 hostname=UNKNOWN-9F3 facility=PaloAlto anomalous=False rows_accessed=0
+{"message_id": "0090919b-7e1d-4f11-82bd-782d39ab7c9f", "event_time_utc": "2026-03-21T19:56:53.540592+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "siem_alert", "src_ip": "10.0.0.4", "hostname": "CORP-LT02", "anomaly": false}}
+{"message_id": "b7b71948-e00f-4c80-a18c-aabf419ee5e5", "event_time_utc": "2026-03-21T18:56:17.030983+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "db_access", "src_ip": "10.0.0.18", "hostname": "CORE-SRV02", "anomaly": false}}
+timestamp=2026-03-21T15:13:01.565785+00:00 actor=alice.morgan action=siem_alert src_ip=192.168.1.13 hostname=WIN-WKST04 facility=siem anomalous=False rows_accessed=0
+timestamp=2026-03-21T18:36:06.082533+00:00 actor=grace.kim action=process_create src_ip=192.168.1.6 hostname=CORE-SRV02 facility=CrowdStrike anomalous=False rows_accessed=0
+timestamp=2026-03-21T19:07:42.768064+00:00 actor=dave.smith action=siem_alert src_ip=192.168.1.9 hostname=WIN-WKST04 facility=siem anomalous=False rows_accessed=0
+bob.chen,login_failure,10.0.0.14,CORP-LT02,2026-03-21T12:55:12.879807+00:00,auth,false,0
+{"message_id": "69d60235-d3eb-43c5-ac24-18e9f48b2766", "event_time_utc": "2026-03-21T16:54:03.300559+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "dave.smith", "event": "login_success"}}
+<14>Mar 21 08:27:15 CORP-PC07 oracle: user=grace.kim event=db_access src_ip=192.168.1.2 hostname=CORP-PC07 anomalous=False
+<14>Mar 21 14:08:05 JUMP-BOX01 postfix: user=frank.liu event=email_alert src_ip=192.168.1.13 hostname=JUMP-BOX01 anomalous=False
+dave.smith,db_access,10.0.0.10,CORP-PC07,2026-03-21T12:23:35.783833+00:00,db,false,3499
+{"message_id": "8b1c15fb-14cd-4152-acf7-e262044764bd", "event_time_utc": "2026-03-21T08:20:05.654428+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"user": "henry.tan", "event": "network_transfer", "ip": "192.168.1.13", "device": "JUMP-BOX01", "is_anomalous": false}}
+timestamp=2026-03-21T17:29:44.098127+00:00 actor=eve.jones action=network_transfer src_ip=10.0.0.14 hostname=UNKNOWN-9F3 facility=PaloAlto anomalous=False rows_accessed=0
+{"message_id": "1a2999e9-0aec-4474-9108-f7f401d2ae42", "event_time_utc": "2026-03-21T10:22:57.055369+00:00", "source_system": "email", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "email_alert", "ip": "10.0.0.1", "device": "CORP-LT01", "is_anomalous": false}}
+<14>Mar 21 12:25:57 CORP-PC07 pf: user=frank.liu event=network_transfer src_ip=192.168.1.13 hostname=CORP-PC07 anomalous=False
+<14>Mar 21 12:59:01 CORP-PC07 sshd: user=bob.chen event=login_failure src_ip=192.168.1.12 hostname=CORP-PC07 anomalous=False
+{"message_id": "4697f43d-a9e8-41e9-a1b2-7a415e6a6751", "event_time_utc": "2026-03-21T08:53:30.325156+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"actor": "bob.chen", "event": "siem_alert"}}
+alice.morgan,db_access,10.0.0.6,CORE-SRV02,2026-03-21T13:27:03.610833+00:00,db,false,296
+{"message_id": "3d655cd7-7ed6-475e-b384-c3a2e0f03a2c", "event_time_utc": "2026-03-21T08:56:43.762780+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "henry.tan", "event": "login_success", "ip": "10.0.0.1", "device": "UNKNOWN-9F3", "is_anomalous": false}}
+<14>Mar 21 08:07:01 CORP-LT02 pf: user=carol.patel event=network_transfer src_ip=10.0.0.14 hostname=CORP-LT02 anomalous=False
+{"message_id": "b516bec3-c157-4a12-a50d-f9d047ccd0ea", "event_time_utc": "2026-03-21T19:59:02.382890+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "email_alert", "src_ip": "192.168.1.3", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+timestamp=2026-03-21T10:29:57.708077+00:00 actor=dave.smith action=login_success src_ip=192.168.1.3 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+<14>Mar 21 19:40:26 WIN-WKST04 sshd: user=bob.chen event=login_success src_ip=192.168.1.14 hostname=WIN-WKST04 anomalous=False
+{"message_id": "7da372af-1a75-499b-ae08-c52fb82ae947", "event_time_utc": "2026-03-21T15:46:40.568902+00:00", "source_system": "network", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "network_transfer", "src_ip": "10.0.0.3", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "ab82f433-697c-41ea-b496-d0dcb6821f17", "event_time_utc": "2026-03-21T18:09:14.028914+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "login_success", "src_ip": "192.168.1.11", "hostname": "WIN-WKST04", "anomaly": false}}
+{"message_id": "01028977-9b02-44f2-a43b-90e998e90e73", "event_time_utc": "2026-03-21T13:41:15.002518+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "email_alert", "src_ip": "192.168.1.6", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "915668fc-c441-4af1-91e5-2a857fad7d99", "event_time_utc": "2026-03-21T18:37:04.370983+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "dave.smith", "event": "login_failure", "ip": "10.0.0.12", "device": "WIN-WKST04", "is_anomalous": false}}
+timestamp=2026-03-21T15:30:28.726817+00:00 actor=grace.kim action=email_alert src_ip=10.0.0.9 hostname=UNKNOWN-9F3 facility=Proofpoint anomalous=False rows_accessed=0
+{"message_id": "1a2999e9-0aec-4474-9108-f7f401d2ae42", "event_time_utc": "2026-03-21T10:22:57.055369+00:00", "source_system": "email", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "email_alert", "ip": "10.0.0.1", "device": "CORP-LT01", "is_anomalous": false}}
+{"message_id": "e3ca971a-d326-4a3c-9077-e0bb60af1d33", "event_time_utc": "2026-03-21T16:53:09.501486+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"actor": "frank.liu", "event": "db_access"}}
+<14>Mar 21 18:29:55 JUMP-BOX01 postfix: user=frank.liu event=email_alert src_ip=192.168.1.6 hostname=JUMP-BOX01 anomalous=False
+{"message_id": "40a31017-1e07-41d1-98cb-ba3295860d15", "event_time_utc": "2026-03-21T11:35:17.202413+00:00", "source_system": "email", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "email_alert", "ip": "192.168.1.4", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "89a3f26d-3d61-4308-a004-15c178be70bf", "event_time_utc": "2026-03-21T08:51:50.848640+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "login_failure", "src_ip": "10.0.0.2", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+carol.patel,network_transfer,10.0.0.15,CORP-LT01,2026-03-21T17:00:42.848267+00:00,network,false,0
+{"message_id": "48e8e20b-e527-4a74-b8c8-1973c7f2a62b", "event_time_utc": "2026-03-21T08:09:37.218926+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "login_failure", "ip": "192.168.1.11", "device": "CORP-PC07", "is_anomalous": false}}
+{"message_id": "9b03c94f-342b-45db-9ae9-eec2630145bd", "event_time_utc": "2026-03-21T14:34:32.913603+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_failure"}}
+carol.patel,login_success,10.0.0.6,CORP-PC07,2026-03-21T19:55:42.584170+00:00,auth,false,0
+grace.kim,login_success,192.168.1.4,JUMP-BOX01,2026-03-21T19:16:33.234670+00:00,auth,false,0
+<14>Mar 21 11:17:08 CORP-LT01 postfix: user=henry.tan event=email_alert src_ip=192.168.1.7 hostname=CORP-LT01 anomalous=False
+{"message_id": "ef8c6e72-6caf-4fca-b295-e27709872234", "event_time_utc": "2026-03-21T08:49:26.681172+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_success"}}
+{"message_id": "c261fd15-ef1a-4e13-b757-9921f6eb3022", "event_time_utc": "2026-03-21T15:56:31.994711+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "login_success", "ip": "192.168.1.9", "device": "DB-SRV01", "is_anomalous": false}}
+peggy.insider,login_failure,10.0.0.15,WIN-WKST04,2026-03-21T04:29:15.551923+00:00,auth,true,0
+{"message_id": "0ba7fdfc-53f2-4f81-97e5-15d73be67a2a", "event_time_utc": "2026-03-21T18:23:15.452717+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "network_transfer", "ip": "192.168.1.7", "device": "JUMP-BOX01", "is_anomalous": false}}
+<14>Mar 21 20:54:56 JUMP-BOX01 sshd: user=grace.kim event=login_success src_ip=192.168.1.3 hostname=JUMP-BOX01 anomalous=False
+bob.chen,login_failure,10.0.0.9,UNKNOWN-9F3,2026-03-21T10:10:16.064060+00:00,auth,false,0
+{"message_id": "fe38cae8-1ac1-472a-8939-95a33dae9944", "event_time_utc": "2026-03-21T18:29:57.848617+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_failure"}}
+<14>Mar 21 16:53:41 DB-SRV01 crowdstrike: user=carol.patel event=process_create src_ip=10.0.0.3 hostname=DB-SRV01 anomalous=False
+frank.liu,login_success,192.168.1.1,CORE-SRV02,2026-03-21T09:39:55.675498+00:00,auth,false,0
+{"message_id": "25366eee-08fd-467a-95cb-cbee6f53bddc", "event_time_utc": "2026-03-21T18:40:30.878896+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"user": "grace.kim", "event": "process_create", "ip": "10.0.0.14", "device": "JUMP-BOX01", "is_anomalous": false}}
+henry.tan,db_access,10.0.0.13,CORP-LT02,2026-03-21T16:04:30.397792+00:00,db,false,2140
+timestamp=2026-03-21T17:11:22.884177+00:00 actor=eve.jones action=siem_alert src_ip=192.168.1.10 hostname=UNKNOWN-9F3 facility=siem anomalous=False rows_accessed=0
+{"message_id": "367b14b2-7df9-4a26-a935-7a76496ed92b", "event_time_utc": "2026-03-21T09:40:26.207191+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "email_alert", "src_ip": "10.0.0.11", "hostname": "CORP-LT01", "anomaly": false}}
+henry.tan,process_create,192.168.1.9,UNKNOWN-9F3,2026-03-21T16:52:35.515507+00:00,edr,false,0
+{"message_id": "272342d7-5d6e-4ba1-b320-308bb579666b", "event_time_utc": "2026-03-21T12:05:14.625655+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"actor": "frank.liu", "event": "process_create"}}
+{"message_id": "4437ef1c-d444-486e-baff-79662fa007d9", "event_time_utc": "2026-03-21T14:20:00.658665+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"user": "henry.tan", "event": "process_create", "ip": "10.0.0.6", "device": "DB-SRV01", "is_anomalous": false}}
+henry.tan,process_create,10.0.0.1,WIN-WKST04,2026-03-21T14:38:28.363624+00:00,edr,false,0
+timestamp=2026-03-21T20:48:52.121237+00:00 actor=grace.kim action=login_success src_ip=192.168.1.13 hostname=JUMP-BOX01 facility=ActiveDirectory anomalous=False rows_accessed=0
+<14>Mar 21 20:57:20 CORP-LT02 pf: user=bob.chen event=network_transfer src_ip=10.0.0.8 hostname=CORP-LT02 anomalous=False
+{"message_id": "ab8d33a2-93d2-4750-84fd-2c719fcd8f39", "event_time_utc": "2026-03-21T13:29:18.650126+00:00", "source_system": "exchange", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "email_alert", "src_ip": "10.0.0.3", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+<14>Mar 21 09:38:22 CORP-LT02 sshd: user=grace.kim event=login_success src_ip=192.168.1.8 hostname=CORP-LT02 anomalous=False
+{"message_id": "605f347e-b387-4c17-8e6b-52c1e992ec43", "event_time_utc": "2026-03-21T14:23:24.822994+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "siem_alert"}}
+timestamp=2026-03-21T13:02:03.072647+00:00 actor=grace.kim action=process_create src_ip=10.0.0.1 hostname=JUMP-BOX01 facility=CrowdStrike anomalous=False rows_accessed=0
+timestamp=2026-03-21T19:23:11.932917+00:00 actor=carol.patel action=network_transfer src_ip=10.0.0.12 hostname=JUMP-BOX01 facility=PaloAlto anomalous=False rows_accessed=0
+<14>Mar 21 20:43:10 WIN-WKST04 oracle: user=carol.patel event=db_access src_ip=192.168.1.4 hostname=WIN-WKST04 anomalous=False
+alice.morgan,network_transfer,10.0.0.17,UNKNOWN-9F3,2026-03-21T09:01:51.202247+00:00,network,false,0
+{"message_id": "9cf6bc5c-b567-408f-9682-a7d9989bd76c", "event_time_utc": "2026-03-21T18:40:46.304951+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"username": "carol.patel", "action": "siem_alert", "src_ip": "10.0.0.13", "hostname": "CORP-LT01", "anomaly": false}}
+<14>Mar 21 12:47:39 CORP-PC07 sshd: user=eve.jones event=login_success src_ip=192.168.1.12 hostname=CORP-PC07 anomalous=False
+{"message_id": "84163700-e915-4c8d-88cf-0ba9717ed52c", "event_time_utc": "2026-03-21T13:34:19.246681+00:00", "source_system": "crowdstrike", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "process_create", "ip": "10.0.0.5", "device": "CORP-PC07", "is_anomalous": false}}
+timestamp=2026-03-21T17:41:09.643697+00:00 actor=dave.smith action=process_create src_ip=192.168.1.14 hostname=CORP-LT02 facility=CrowdStrike anomalous=False rows_accessed=0
+timestamp=2026-03-21T20:35:49.818957+00:00 actor=alice.morgan action=login_success src_ip=192.168.1.1 hostname=CORP-PC07 facility=ActiveDirectory anomalous=False rows_accessed=0
+<14>Mar 21 15:55:58 CORP-LT01 splunk: user=henry.tan event=siem_alert src_ip=192.168.1.12 hostname=CORP-LT01 anomalous=False
+{"message_id": "098cfd18-ef67-4899-ae89-1798aff1d1dd", "event_time_utc": "2026-03-21T05:21:40.915958+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "peggy.insider", "action": "db_access", "src_ip": "192.168.1.10", "hostname": "DB-SRV01", "anomaly": true}}
+carol.patel,network_transfer,192.168.1.8,CORE-SRV02,2026-03-21T15:38:49.382918+00:00,network,false,0
+{"message_id": "2bb5af7d-6a4b-41cc-9080-a9eeaf79f738", "event_time_utc": "2026-03-21T20:32:45.564808+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "siem_alert", "src_ip": "10.0.0.2", "hostname": "JUMP-BOX01", "anomaly": false}}
+dave.smith,login_success,10.0.0.19,UNKNOWN-9F3,2026-03-21T10:15:26.003945+00:00,auth,false,0
+timestamp=2026-03-21T14:08:04.833285+00:00 actor=bob.chen action=login_success src_ip=10.0.0.7 hostname=CORE-SRV02 facility=ActiveDirectory anomalous=False rows_accessed=0
+<14>Mar 21 12:43:46 CORP-LT02 splunk: user=eve.jones event=siem_alert src_ip=192.168.1.3 hostname=CORP-LT02 anomalous=False
+henry.tan,db_access,192.168.1.6,WIN-WKST04,2026-03-21T09:43:05.847442+00:00,db,false,3682
+timestamp=2026-03-21T17:49:00.743716+00:00 actor=dave.smith action=network_transfer src_ip=192.168.1.1 hostname=CORP-LT02 facility=PaloAlto anomalous=False rows_accessed=0
+<14>Mar 21 19:21:52 CORP-LT01 postfix: user=frank.liu event=email_alert src_ip=10.0.0.4 hostname=CORP-LT01 anomalous=False
+grace.kim,login_failure,10.0.0.4,JUMP-BOX01,2026-03-21T19:14:44.054750+00:00,auth,false,0
+timestamp=2026-03-21T20:50:33.370718+00:00 actor=grace.kim action=login_failure src_ip=192.168.1.3 hostname=CORE-SRV02 facility=ActiveDirectory anomalous=False rows_accessed=0
+eve.jones,network_transfer,192.168.1.7,WIN-WKST04,2026-03-21T14:47:55.744613+00:00,network,false,0
+eve.jones,process_create,192.168.1.9,DB-SRV01,2026-03-21T13:42:16.615965+00:00,edr,false,0
+{"message_id": "9166bbba-b828-4b76-855e-2d0466716caf", "event_time_utc": "2026-03-21T10:41:33.782446+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "siem_alert"}}
+{"message_id": "4984be54-2033-4166-8cc5-8fc8376bccba", "event_time_utc": "2026-03-21T15:27:09.246726+00:00", "source_system": "db", "payload_version": "v1", "payload": {"username": "eve.jones", "action": "db_access", "src_ip": "192.168.1.11", "hostname": "CORE-SRV02", "anomaly": false}}
+{"message_id": "9f90fb60-994f-484e-bf88-7ab77009139c", "event_time_utc": "2026-03-21T13:47:41.290350+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "process_create", "ip": "10.0.0.10", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "9e88ee26-25d3-4694-9f94-fb9d28848d54", "event_time_utc": "2026-03-21T02:23:32.368146+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"user": "mallory.breach", "event": "login_success", "ip": "10.0.0.9", "device": "CORP-LT01", "is_anomalous": true}}
+{"message_id": "5a7ae60c-93c6-452d-b0a5-85e200dab5d2", "event_time_utc": "2026-03-21T11:41:20.947789+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "siem_alert", "ip": "192.168.1.10", "device": "CORP-PC07", "is_anomalous": false}}
+<14>Mar 21 20:49:19 UNKNOWN-9F3 sshd: user=bob.chen event=login_success src_ip=10.0.0.15 hostname=UNKNOWN-9F3 anomalous=False
+{"message_id": "299148fc-9790-464c-bf50-57ccf1a4ae8a", "event_time_utc": "2026-03-21T16:11:01.149549+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "login_success", "src_ip": "10.0.0.3", "hostname": "JUMP-BOX01", "anomaly": false}}
+{"message_id": "e7fc4941-2865-4440-8f54-2503336e356e", "event_time_utc": "2026-03-21T12:46:30.717583+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "process_create", "src_ip": "10.0.0.14", "hostname": "CORP-LT02", "anomaly": false}}
+{"message_id": "021bd827-2da3-4646-b375-c16f8d19d21e", "event_time_utc": "2026-03-21T09:30:44.331045+00:00", "source_system": "db", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "db_access"}}
+{"message_id": "4cb1f39f-ca70-438f-bfc5-d9637f415e21", "event_time_utc": "2026-03-21T13:25:03.552412+00:00", "source_system": "splunk", "payload_version": "v1", "payload": {"actor": "carol.patel", "event": "siem_alert"}}
+timestamp=2026-03-21T18:27:57.425375+00:00 actor=eve.jones action=login_success src_ip=10.0.0.17 hostname=CORP-LT02 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "b9f151de-fabe-47c8-a8b0-bbedba4dc5ee", "event_time_utc": "2026-03-21T18:35:45.644608+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"username": "bob.chen", "action": "process_create", "src_ip": "192.168.1.11", "hostname": "DB-SRV01", "anomaly": false}}
+{"message_id": "9a5d5f68-61ce-4674-86f0-949d0f654334", "event_time_utc": "2026-03-21T20:09:07.569977+00:00", "source_system": "endpoint", "payload_version": "v1", "payload": {"username": "alice.morgan", "action": "process_create", "src_ip": "192.168.1.13", "hostname": "WIN-WKST04", "anomaly": false}}
+timestamp=2026-03-21T11:07:05.595216+00:00 actor=carol.patel action=login_failure src_ip=192.168.1.9 hostname=UNKNOWN-9F3 facility=ActiveDirectory anomalous=False rows_accessed=0
+{"message_id": "3e903a4e-7e5a-415a-9dd5-29ad59cb202f", "event_time_utc": "2026-03-21T10:07:20.930992+00:00", "source_system": "firewall", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "network_transfer", "ip": "10.0.0.10", "device": "WIN-WKST04", "is_anomalous": false}}
+{"message_id": "1cfe4b16-e86c-4d89-a54a-b85fde8cd64e", "event_time_utc": "2026-03-21T17:46:46.748602+00:00", "source_system": "email", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "email_alert", "src_ip": "10.0.0.7", "hostname": "JUMP-BOX01", "anomaly": false}}
+timestamp=2026-03-21T18:40:09.275307+00:00 actor=frank.liu action=email_alert src_ip=10.0.0.10 hostname=DB-SRV01 facility=Proofpoint anomalous=False rows_accessed=0
+{"message_id": "ff4264f2-32f8-42fc-9cd2-b0c369ee84f0", "event_time_utc": "2026-03-21T18:09:56.907554+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"actor": "frank.liu", "event": "db_access"}}
+alice.morgan,siem_alert,192.168.1.2,JUMP-BOX01,2026-03-21T13:35:23.696356+00:00,siem,false,0
+{"message_id": "7a146b5c-afc5-4262-9fcf-ffc2e4b9ef81", "event_time_utc": "2026-03-21T15:23:09.082184+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"user": "henry.tan", "event": "db_access", "ip": "10.0.0.13", "device": "JUMP-BOX01", "is_anomalous": false}}
+<14>Mar 21 11:11:01 WIN-WKST04 sshd: user=alice.morgan event=login_failure src_ip=192.168.1.8 hostname=WIN-WKST04 anomalous=False
+timestamp=2026-03-21T09:21:17.603025+00:00 actor=henry.tan action=network_transfer src_ip=10.0.0.13 hostname=CORP-LT02 facility=PaloAlto anomalous=False rows_accessed=0
+timestamp=2026-03-21T13:23:26.603534+00:00 actor=carol.patel action=siem_alert src_ip=192.168.1.3 hostname=UNKNOWN-9F3 facility=siem anomalous=False rows_accessed=0
+bob.chen,db_access,10.0.0.14,WIN-WKST04,2026-03-21T19:28:34.972071+00:00,db,false,2656
+henry.tan,siem_alert,10.0.0.12,DB-SRV01,2026-03-21T14:21:29.835931+00:00,siem,false,0
+{"message_id": "71a65b3b-99ae-46d7-91ac-825792613a0d", "event_time_utc": "2026-03-21T14:18:29.703652+00:00", "source_system": "email", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "email_alert"}}
+timestamp=2026-03-21T12:21:13.551339+00:00 actor=alice.morgan action=db_access src_ip=10.0.0.5 hostname=UNKNOWN-9F3 facility=DataSunrise anomalous=False rows_accessed=366
+{"message_id": "40762117-7913-4ca6-9b4f-0af3af46a56b", "event_time_utc": "2026-03-21T08:00:57.519023+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"user": "carol.patel", "event": "process_create", "ip": "10.0.0.19", "device": "CORP-PC07", "is_anomalous": false}}
+{"message_id": "2537ee48-a8b0-4e10-920d-8fc24234ac19", "event_time_utc": "2026-03-21T10:29:13.718615+00:00", "source_system": "mail", "payload_version": "v1", "payload": {"user": "eve.jones", "event": "email_alert", "ip": "192.168.1.5", "device": "DB-SRV01", "is_anomalous": false}}
+{"message_id": "90a945c9-09d4-472f-86a6-9eda1cc71e62", "event_time_utc": "2026-03-21T16:24:43.630759+00:00", "source_system": "oracle", "payload_version": "v1", "payload": {"user": "frank.liu", "event": "db_access", "ip": "192.168.1.5", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "58180a03-4acf-4191-af93-20298dab4fb6", "event_time_utc": "2026-03-21T13:43:51.680767+00:00", "source_system": "database", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "db_access", "src_ip": "10.0.0.12", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "78ed5277-3839-4f7c-b136-5d93b022b8da", "event_time_utc": "2026-03-21T10:06:37.724447+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "process_create", "src_ip": "10.0.0.12", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+<14>Mar 21 15:28:12 UNKNOWN-9F3 crowdstrike: user=alice.morgan event=process_create src_ip=10.0.0.18 hostname=UNKNOWN-9F3 anomalous=False
+{"message_id": "13cbbf62-437e-4172-98ce-dc91dd5f17be", "event_time_utc": "2026-03-21T14:28:19.506437+00:00", "source_system": "edr", "payload_version": "v1", "payload": {"username": "henry.tan", "action": "process_create", "src_ip": "10.0.0.13", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "5de309a4-cbc3-4c1f-9c66-74917daacaaf", "event_time_utc": "2026-03-21T15:58:26.974249+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "henry.tan", "event": "login_failure"}}
+timestamp=2026-03-21T09:48:47.296037+00:00 actor=carol.patel action=network_transfer src_ip=192.168.1.14 hostname=UNKNOWN-9F3 facility=PaloAlto anomalous=False rows_accessed=0
+<14>Mar 21 18:21:06 JUMP-BOX01 sshd: user=frank.liu event=login_success src_ip=10.0.0.14 hostname=JUMP-BOX01 anomalous=False
+{"message_id": "4062157e-c3cd-43c1-a517-ca53a0be7afc", "event_time_utc": "2026-03-21T14:14:36.013121+00:00", "source_system": "siem", "payload_version": "v1", "payload": {"username": "frank.liu", "action": "siem_alert", "src_ip": "192.168.1.4", "hostname": "UNKNOWN-9F3", "anomaly": false}}
+{"message_id": "197a13f9-f048-4db6-82e2-a077619aaf03", "event_time_utc": "2026-03-21T08:34:06.126213+00:00", "source_system": "activeDirectory", "payload_version": "v1", "payload": {"username": "dave.smith", "action": "login_success", "src_ip": "192.168.1.3", "hostname": "CORP-PC07", "anomaly": false}}
+{"message_id": "71f0b68c-612a-4d49-9881-66053666b112", "event_time_utc": "2026-03-21T09:28:54.933588+00:00", "source_system": "auth", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "login_failure"}}
+{"message_id": "0732b3c2-3985-4515-baee-d60e5ec0fa23", "event_time_utc": "2026-03-21T10:13:03.441489+00:00", "source_system": "email", "payload_version": "v1", "payload": {"user": "alice.morgan", "event": "email_alert", "ip": "192.168.1.3", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "e900fa71-248a-472e-be81-b04c49fca78d", "event_time_utc": "2026-03-21T12:51:24.465446+00:00", "source_system": "authentication", "payload_version": "v1", "payload": {"actor": "alice.morgan", "event": "login_success"}}
+timestamp=2026-03-21T08:49:48.952180+00:00 actor=dave.smith action=network_transfer src_ip=10.0.0.17 hostname=CORE-SRV02 facility=PaloAlto anomalous=False rows_accessed=0
+bob.chen,login_success,192.168.1.14,UNKNOWN-9F3,2026-03-21T18:45:20.570296+00:00,auth,false,0
+{"message_id": "39f1deb4-eb96-4618-abdc-0b301b434b5f", "event_time_utc": "2026-03-21T17:07:01.616122+00:00", "source_system": "db", "payload_version": "v1", "payload": {"user": "bob.chen", "event": "db_access", "ip": "10.0.0.7", "device": "JUMP-BOX01", "is_anomalous": false}}
+{"message_id": "8a446f01-015f-47ee-a45a-f217381e5060", "event_time_utc": "2026-03-21T11:35:43.039699+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"actor": "eve.jones", "event": "siem_alert"}}
+<14>Mar 21 12:16:17 CORE-SRV02 pf: user=eve.jones event=network_transfer src_ip=10.0.0.13 hostname=CORE-SRV02 anomalous=False
+{"message_id": "f23ba0cd-3564-4b52-9125-9848fe649ce2", "event_time_utc": "2026-03-21T20:35:10.411428+00:00", "source_system": "qradar", "payload_version": "v1", "payload": {"username": "grace.kim", "action": "siem_alert", "src_ip": "10.0.0.5", "hostname": "CORP-PC07", "anomaly": false}}

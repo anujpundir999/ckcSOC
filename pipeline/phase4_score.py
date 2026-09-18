@@ -184,10 +184,17 @@ def _pad(fv, target_len):
     return fv[:target_len]
 
 def _train_baseline(clusters):
-    global _model, _baseline_mean, _baseline_std, _baseline_median, _baseline_mad, _feature_dim, _small_sample_mode
-    normal = [_fv(c) for c in clusters if not c['has_anomalous']]
+    global _model, _baseline_mean, _baseline_std, _feature_dim
+    normal = [_fv(c) for c in clusters if not c.get('has_anomalous', False)]
     if not normal:
+        # All clusters anomalous (e.g. attack-heavy dataset) — use all clusters
         normal = [_fv(c) for c in clusters]
+
+    # Filter out empty vectors before computing max dimension
+    normal = [v for v in normal if v]
+    if not normal:
+        # Absolute fallback: synthesize a minimal baseline vector
+        normal = [[0.0] * 9]
 
     # Ensure consistent feature dimension
     _feature_dim = max(len(v) for v in normal)
