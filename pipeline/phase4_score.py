@@ -184,7 +184,8 @@ def _pad(fv, target_len):
     return fv[:target_len]
 
 def _train_baseline(clusters):
-    global _model, _baseline_mean, _baseline_std, _feature_dim
+    global _model, _baseline_mean, _baseline_std, _baseline_median, _baseline_mad
+    global _feature_dim, _small_sample_mode
     normal = [_fv(c) for c in clusters if not c.get('has_anomalous', False)]
     if not normal:
         # All clusters anomalous (e.g. attack-heavy dataset) — use all clusters

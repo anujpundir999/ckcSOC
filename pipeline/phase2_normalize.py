@@ -46,7 +46,7 @@ def _infer_event_type(payload: dict) -> str:
     # Native synthetic dataset path keeps the original event key.
     ev = payload.get('event')
     if ev:
-        return ev
+        return str(ev)
 
     op = (payload.get('OperationName') or payload.get('Operation') or '').lower()
     if 'sign-in' in op:
@@ -274,4 +274,3 @@ if __name__ == '__main__':
         serve()
     else:
         print('[PHASE 2] Use --serve for continuous mode or import run() for batch')
-
