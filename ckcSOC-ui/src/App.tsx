@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import ReactMarkdown from 'react-markdown'
 import {
   PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip,
   AreaChart, Area, ResponsiveContainer, Legend, LineChart, Line
@@ -15,12 +16,122 @@ const C = {
   donut: ['#d9534f','#ff9933','#f0ad4e','#5ba94c'],
 }
 
+const PHASE_DETAILS: Record<string, { short: string; window: string; tone: string }> = {
+  immediate: { short: 'Triage', window: '0–15 min', tone: 'urgent' },
+  containment: { short: 'Contain', window: '≤ 1 hour', tone: 'contain' },
+  investigation: { short: 'Investigate', window: '≤ 4 hours', tone: 'investigate' },
+  recovery: { short: 'Recover', window: '≤ 24 hours', tone: 'recover' },
+}
+
+function getPhaseDetail(title: string) {
+  const key = Object.keys(PHASE_DETAILS).find(phase => title.toLowerCase().includes(phase))
+  return key ? PHASE_DETAILS[key] : { short: title, window: 'Response phase', tone: 'investigate' }
+}
+
+function parsePlaybook(content: string) {
+  const matches = [...content.matchAll(/^##\s+(.+)$/gm)]
+  if (!matches.length) return [{ title: 'Response actions', body: content }]
+
+  return matches.map((match, index) => ({
+    title: match[1].trim(),
+    body: content.slice((match.index || 0) + match[0].length, matches[index + 1]?.index ?? content.length).trim(),
+  }))
+}
+
+type PlaybookThreatContext = {
+  attack_path?: {
+    kill_chain?: string[]
+    high_risk_assets?: string[]
+  }
+}
+
+function PlaybookDocument({ content, playbook }: { content: string; playbook: PlaybookThreatContext }) {
+  const phases = parsePlaybook(content)
+  const attackPath = playbook.attack_path?.kill_chain || []
+  const assets = playbook.attack_path?.high_risk_assets || []
+
+  return (
+    <div className="runbook-shell">
+      <aside className="runbook-rail" aria-label="Response phases">
+        <div className="rail-label">Execution order</div>
+        <ol className="phase-index">
+          {phases.map((phase, index) => {
+            const detail = getPhaseDetail(phase.title)
+            return (
+              <li key={phase.title} className={`phase-index-item phase-${detail.tone}`}>
+                <span className="phase-marker">{String(index + 1).padStart(2, '0')}</span>
+                <span>
+                  <strong>{detail.short}</strong>
+                  <small>{detail.window}</small>
+                </span>
+              </li>
+            )
+          })}
+        </ol>
+
+        {(attackPath.length > 0 || assets.length > 0) && (
+          <div className="threat-brief">
+            <div className="rail-label">Threat brief</div>
+            {attackPath.length > 0 && (
+              <div className="threat-group">
+                <span>Observed path</span>
+                <div className="attack-path">
+                  {attackPath.map((technique: string, index: number) => (
+                    <div className="attack-step" key={technique}>
+                      <i>{index + 1}</i><b>{technique}</b>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            {assets.length > 0 && (
+              <div className="threat-group">
+                <span>Protect first</span>
+                <div className="asset-list">
+                  {assets.map((asset: string) => <code key={asset}>{asset}</code>)}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+      </aside>
+
+      <article className="runbook-document">
+        <div className="runbook-intro">
+          <span className="live-pulse" aria-hidden="true" />
+          <div>
+            <strong>Analyst action plan</strong>
+            <p>Work top to bottom. Preserve evidence before making changes and record every completed action.</p>
+          </div>
+        </div>
+        {phases.map((phase, index) => {
+          const detail = getPhaseDetail(phase.title)
+          return (
+            <section className={`runbook-phase phase-${detail.tone}`} key={phase.title}>
+              <header className="runbook-phase-header">
+                <div className="phase-number">{String(index + 1).padStart(2, '0')}</div>
+                <div>
+                  <span>{detail.window}</span>
+                  <h3>{phase.title.replace(/\s*\([^)]*\)\s*$/, '')}</h3>
+                </div>
+              </header>
+              <div className="runbook-markdown">
+                <ReactMarkdown>{phase.body}</ReactMarkdown>
+              </div>
+            </section>
+          )
+        })}
+      </article>
+    </div>
+  )
+}
+
 function App() {
   const [summary, setSummary] = useState<any>(null)
   const [dataset, setDataset] = useState<any>(null)
-  const [incidents, setIncidents] = useState<any>(null)
+  const [, setIncidents] = useState<any>(null)
   const [playbooks, setPlaybooks] = useState<any>(null)
-  const [audit, setAudit] = useState<any>(null)
+  const [, setAudit] = useState<any>(null)
   const [severity, setSeverity] = useState<any>(null)
 
   const fetchAll = useCallback(async () => {
@@ -73,6 +184,13 @@ function App() {
     { name: 'LLM (Ollama)', value: llmCount, fill: C.blue },
     { name: 'Template', value: (playbooks?.count || 0) - llmCount, fill: C.yellow },
   ]
+  const latestPlaybook = playbooks?.playbooks?.[0]
+  const playbookContent = latestPlaybook?.nist_phases?.text
+    || (latestPlaybook?.nist_phases
+      ? Object.entries(latestPlaybook.nist_phases)
+          .map(([phase, steps]: any) => `${phase.toUpperCase()}\n${Array.isArray(steps) ? steps.map((step, index) => `${index + 1}. ${step}`).join('\n') : steps}`)
+          .join('\n\n')
+      : '')
 
   // incoming source bar chart
   const sourceBarData = sourceData.map((d:any, i:number) => ({...d, fill: C.bars[i % C.bars.length]}))
@@ -304,6 +422,37 @@ function App() {
         </div>
       </div>
 
+      {/* ── Latest generated response plan ── */}
+      <section className="playbook-panel" aria-labelledby="latest-playbook-title">
+        <div className="panel-header playbook-header">
+          <div>
+            <div className="playbook-eyebrow">Incident response</div>
+            <span id="latest-playbook-title" className="panel-title">Latest response playbook</span>
+          </div>
+          {latestPlaybook && (
+            <div className="playbook-meta">
+              <span className={`sev-tag ${latestPlaybook.severity === 'High' || latestPlaybook.severity === 'Critical' ? 'sev-high' : latestPlaybook.severity === 'Medium' ? 'sev-medium' : 'sev-low'}`}>
+                {latestPlaybook.severity}
+              </span>
+              <span>{latestPlaybook.source === 'ollama_llm' ? 'Ollama generated' : 'Template fallback'}</span>
+              <span>Confidence {Math.round((latestPlaybook.confidence || 0) * 100)}%</span>
+            </div>
+          )}
+        </div>
+        {latestPlaybook ? (
+          <div className="playbook-body">
+            <div className="playbook-context">
+              <span>Cluster <strong>{latestPlaybook.cluster_id}</strong></span>
+              <span>Subject <strong>{latestPlaybook.primary_user}</strong></span>
+              <span>Generated {new Date(latestPlaybook.generated_at).toLocaleString()}</span>
+            </div>
+            <PlaybookDocument content={playbookContent} playbook={latestPlaybook} />
+          </div>
+        ) : (
+          <div className="playbook-empty">No response playbook has been generated yet. High-severity incidents will appear here after the pipeline completes.</div>
+        )}
+      </section>
+
       {/* ── Row 4: 3 panels ── */}
       <div className="dash-grid">
         {/* Panel 7: Executed Playbooks */}
@@ -380,7 +529,7 @@ function App() {
                   <YAxis tick={{fill:'#5e6372',fontSize:9}} width={35} />
                   <Tooltip contentStyle={{background:'#1a1c24',border:'1px solid #2a2c36',color:'#e8ecf4',fontSize:11}} />
                   <Bar dataKey="count" radius={[2,2,0,0]}>
-                    {sourceBarData.map((d:any,i:number) => <Cell key={i} fill={C.bars[i % C.bars.length]} />)}
+                    {sourceBarData.map((_:any,i:number) => <Cell key={i} fill={C.bars[i % C.bars.length]} />)}
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
